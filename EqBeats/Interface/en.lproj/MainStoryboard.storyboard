@@ -8,7 +8,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lGW-2f-gNf">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="KLZ-B6-sQK" customClass="EQBNavigationController" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="KLZ-B6-sQK" customClass="EBNavigationController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hIC-p8-ySX">
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,12 +24,12 @@
         <!--Launch View Controller-->
         <scene sceneID="a3P-Cb-duK">
             <objects>
-                <viewController id="Hth-gW-PI4" customClass="LaunchViewController" sceneMemberID="viewController">
+                <viewController id="Hth-gW-PI4" customClass="EBLaunchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bhV-oW-T5l">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="enQ-4e-Ww3" customClass="LaunchBackgroundView">
+                            <view contentMode="scaleToFill" id="enQ-4e-Ww3" customClass="EBLaunchBackgroundView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -64,7 +64,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="WhiteDisclosure.png" id="naC-1g-Pem">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="WhiteDisclosure" id="naC-1g-Pem">
                                         <rect key="frame" x="300" y="15" width="10" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
@@ -138,7 +138,7 @@
                                 <rect key="frame" x="0.0" y="472" width="320" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="NowPlayingBottomBackground.png" id="IrR-dm-WDB">
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="NowPlayingBottomBackground" id="IrR-dm-WDB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
@@ -146,7 +146,7 @@
                                         <rect key="frame" x="68" y="5" width="44" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="PreviousTrack.png">
+                                        <state key="normal" image="PreviousTrack">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -161,7 +161,7 @@
                                         <rect key="frame" x="138" y="5" width="44" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="Play.png">
+                                        <state key="normal" image="Play">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -176,7 +176,7 @@
                                         <rect key="frame" x="208" y="5" width="44" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="NextTrack.png">
+                                        <state key="normal" image="NextTrack">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -206,7 +206,7 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="76"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="NowPlayingTopBackground.png" id="SLf-g9-wqY">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="NowPlayingTopBackground" id="SLf-g9-wqY">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
@@ -318,7 +318,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="fdI-Yr-SaI">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="9vX-U1-fWx" customClass="MainTabBarController" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" id="9vX-U1-fWx" customClass="EBMainTabBarController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="CU0-ha-2S8"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -345,7 +345,7 @@
         <!--Featured View Controller - Latest-->
         <scene sceneID="0mp-j0-b5g">
             <objects>
-                <tableViewController title="Latest" id="a2W-tQ-GKH" customClass="FeaturedViewController" sceneMemberID="viewController">
+                <tableViewController title="Latest" id="a2W-tQ-GKH" customClass="EBFeaturedViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1r5-g5-Ngo">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -401,7 +401,7 @@
         <!--Search View Controller - Search-->
         <scene sceneID="WHg-I2-GNM">
             <objects>
-                <tableViewController title="Search" id="xMV-H3-N6F" customClass="SearchViewController" sceneMemberID="viewController">
+                <tableViewController title="Search" id="xMV-H3-N6F" customClass="EBSearchViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qBh-yf-DN6">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -508,7 +508,7 @@
         <!--Radio List View Controller - Radio-->
         <scene sceneID="lEX-qA-Voo">
             <objects>
-                <tableViewController id="TCv-Np-U02" customClass="RadioListViewController" sceneMemberID="viewController">
+                <tableViewController id="TCv-Np-U02" customClass="EBRadioListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="rkc-1L-tQM">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -635,12 +635,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="RubyMotionLogo.png" id="hS7-jQ-AYg">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="RubyMotionLogo" id="hS7-jQ-AYg">
                                                     <rect key="frame" x="76" y="42" width="148" height="148"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Equestrian Beats is lovingly gemcrafted in:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FaZ-SL-tWC">
-                                                    <rect key="frame" x="20" y="13" width="260" height="33"/>
+                                                    <rect key="frame" x="20" y="13" width="260" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -705,9 +705,9 @@
         <!--Navigation Controller - About-->
         <scene sceneID="xRq-ZH-cuw">
             <objects>
-                <navigationController definesPresentationContext="YES" id="LYz-wZ-4oU" customClass="EQBNavigationController" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="LYz-wZ-4oU" customClass="EBNavigationController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="About" image="AboutIcon.png" id="XvQ-pe-6KE"/>
+                    <tabBarItem key="tabBarItem" title="About" image="AboutIcon" id="XvQ-pe-6KE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zfg-2u-4wZ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -722,9 +722,9 @@
         <!--Navigation Controller - Settings-->
         <scene sceneID="3Vy-aS-MVA">
             <objects>
-                <navigationController definesPresentationContext="YES" id="KIa-48-Co2" customClass="EQBNavigationController" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="KIa-48-Co2" customClass="EBNavigationController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsIcon.png" id="NJe-xL-FKx"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsIcon" id="NJe-xL-FKx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8wV-gf-TDp">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -739,7 +739,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mVW-jI-MoG">
             <objects>
-                <navigationController definesPresentationContext="YES" id="wVn-2C-Pf1" customClass="EQBNavigationController" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="wVn-2C-Pf1" customClass="EBNavigationController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" systemItem="downloads" id="HWv-26-tYX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bh6-A6-XLs">
@@ -756,7 +756,7 @@
         <!--Navigation Controller - Radio-->
         <scene sceneID="XK5-VT-9xZ">
             <objects>
-                <navigationController definesPresentationContext="YES" id="MZJ-YO-Xpv" customClass="EQBNavigationController" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="MZJ-YO-Xpv" customClass="EBNavigationController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Radio" image="RadioIcon.png" id="phF-Su-vQG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1l3-DH-5gS">
@@ -773,7 +773,7 @@
         <!--Playlists View Controller - Playlists-->
         <scene sceneID="8g2-OQ-FaX">
             <objects>
-                <tableViewController title="Playlists" id="lkO-QZ-Tl5" customClass="PlaylistsViewController" sceneMemberID="viewController">
+                <tableViewController title="Playlists" id="lkO-QZ-Tl5" customClass="EBPlaylistsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="UfT-vg-29N">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -912,7 +912,7 @@
         <!--Navigation Controller - Featured-->
         <scene sceneID="P2H-zI-xuW">
             <objects>
-                <navigationController id="fKu-Yw-Y8l" customClass="EQBNavigationController" sceneMemberID="viewController">
+                <navigationController id="fKu-Yw-Y8l" customClass="EBNavigationController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Featured" image="FeaturedIcon.png" id="6It-Yh-zpZ"/>
                     <toolbarItems/>
@@ -932,7 +932,7 @@
         <!--Navigation Controller - Playlists-->
         <scene sceneID="GEl-fx-DUv">
             <objects>
-                <navigationController id="evA-8Q-z3F" customClass="EQBNavigationController" sceneMemberID="viewController">
+                <navigationController id="evA-8Q-z3F" customClass="EBNavigationController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Playlists" image="PlaylistIcon.png" id="vmk-DW-Pax"/>
                     <toolbarItems/>
@@ -952,7 +952,7 @@
         <!--Navigation Controller - Search-->
         <scene sceneID="UTf-Ek-Rur">
             <objects>
-                <navigationController id="8yb-G4-MZA" customClass="EQBNavigationController" sceneMemberID="viewController">
+                <navigationController id="8yb-G4-MZA" customClass="EBNavigationController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Search" image="SearchIcon.png" id="81T-wP-B5a"/>
                     <toolbarItems/>
@@ -971,20 +971,55 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AboutIcon.png" width="24" height="21"/>
+        <image name="AboutIcon" width="24" height="21"/>
         <image name="FeaturedIcon.png" width="39" height="26"/>
-        <image name="NextTrack.png" width="31" height="23"/>
-        <image name="NowPlayingBottomBackground.png" width="320" height="96"/>
-        <image name="NowPlayingTopBackground.png" width="1" height="76"/>
-        <image name="Play.png" width="30" height="27"/>
+        <image name="NextTrack" width="31" height="23"/>
+        <image name="NowPlayingBottomBackground" width="320" height="96"/>
+        <image name="NowPlayingTopBackground" width="1" height="76"/>
+        <image name="Play" width="30" height="27"/>
         <image name="PlaylistIcon.png" width="24" height="24"/>
-        <image name="PreviousTrack.png" width="31" height="23"/>
+        <image name="PreviousTrack" width="31" height="23"/>
         <image name="RadioIcon.png" width="26" height="24"/>
-        <image name="RubyMotionLogo.png" width="250" height="250"/>
+        <image name="RubyMotionLogo" width="250" height="250"/>
         <image name="SearchIcon.png" width="24" height="24"/>
-        <image name="SettingsIcon.png" width="26" height="26"/>
-        <image name="WhiteDisclosure.png" width="20" height="28"/>
+        <image name="SettingsIcon" width="26" height="26"/>
+        <image name="WhiteDisclosure" width="10" height="14"/>
     </resources>
+    <classes>
+        <class className="EBFeaturedViewController" superclassName="EBTracksViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBFeaturedViewController.h"/>
+        </class>
+        <class className="EBLaunchBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBLaunchBackgroundView.h"/>
+        </class>
+        <class className="EBLaunchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBLaunchViewController.h"/>
+        </class>
+        <class className="EBMainTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBMainTabBarController.h"/>
+        </class>
+        <class className="EBNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBNavigationController.h"/>
+        </class>
+        <class className="EBPlaylistsViewController" superclassName="EBTracksViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBPlaylistsViewController.h"/>
+        </class>
+        <class className="EBRadioListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBRadioListViewController.h"/>
+        </class>
+        <class className="EBSearchViewController" superclassName="EBTracksViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBSearchViewController.h"/>
+        </class>
+        <class className="EBTracksViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBTracksViewController.h"/>
+        </class>
+        <class className="MarqueeLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MarqueeLabel.h"/>
+        </class>
+        <class className="UIRefreshControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

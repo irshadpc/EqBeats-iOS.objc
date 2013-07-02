@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Sudeium. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface EBModelObject : NSObject
+@interface EBModelObject : NSManagedObject
 
 @end
