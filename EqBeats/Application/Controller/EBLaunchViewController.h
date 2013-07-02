@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class EBLaunchBackgroundView;
+
 @interface EBLaunchViewController : UIViewController
+@property (weak, nonatomic) IBOutlet EBLaunchBackgroundView *launchView;
 
 @end

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3381.3" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="EBModelObject" representedClassName="EBModelObject" isAbstract="YES" syncable="YES">
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="htmlDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plainDetail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="EBPlaylist" representedClassName="EBPlaylist" parentEntity="EBModelObject" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBUser" inverseName="playlists" inverseEntity="EBUser" syncable="YES"/>
+        <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBTrack" syncable="YES"/>
+    </entity>
+    <entity name="EBRadioStation" representedClassName="EBRadioStation" syncable="YES">
+        <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="EBTrack" representedClassName="EBTrack" parentEntity="EBModelObject" syncable="YES">
+        <attribute name="download" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBUser" inverseName="tracks" inverseEntity="EBUser" syncable="YES"/>
+    </entity>
+    <entity name="EBUser" representedClassName="EBUser" parentEntity="EBModelObject" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBPlaylist" inverseName="author" inverseEntity="EBPlaylist" syncable="YES"/>
+        <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBTrack" inverseName="artist" inverseEntity="EBTrack" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="EBUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBTrack" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBPlaylist" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBRadioStation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBModelObject" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

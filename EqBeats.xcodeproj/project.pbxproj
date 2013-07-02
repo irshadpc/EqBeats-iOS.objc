@@ -33,6 +33,8 @@
 		8B8081CE1782D57C008C1BA9 /* EBAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081CD1782D57C008C1BA9 /* EBAPI.m */; };
 		8B8081D01782D5CF008C1BA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8081CF1782D5CF008C1BA9 /* AVFoundation.framework */; };
 		8B8081D31782DACD008C1BA9 /* EBPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081D21782DACD008C1BA9 /* EBPlaylistsViewController.m */; };
+		8B8081D61782DC08008C1BA9 /* EqBeats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081D41782DC08008C1BA9 /* EqBeats.xcdatamodeld */; };
+		8B8081E81782E39C008C1BA9 /* EBImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081E71782E39C008C1BA9 /* EBImageView.m */; };
 		8BDB76BE17819B6700DC380B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDB76BD17819B6700DC380B /* Foundation.framework */; };
 		8BDB76C017819B6700DC380B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDB76BF17819B6700DC380B /* CoreGraphics.framework */; };
 		8BDB76C217819B6700DC380B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDB76C117819B6700DC380B /* UIKit.framework */; };
@@ -114,6 +116,9 @@
 		8B8081CF1782D5CF008C1BA9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8B8081D11782DACD008C1BA9 /* EBPlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPlaylistsViewController.h; sourceTree = "<group>"; };
 		8B8081D21782DACD008C1BA9 /* EBPlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPlaylistsViewController.m; sourceTree = "<group>"; };
+		8B8081D51782DC08008C1BA9 /* EqBeats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EqBeats.xcdatamodel; sourceTree = "<group>"; };
+		8B8081E61782E39C008C1BA9 /* EBImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBImageView.h; sourceTree = "<group>"; };
+		8B8081E71782E39C008C1BA9 /* EBImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBImageView.m; sourceTree = "<group>"; };
 		8BDB76BA17819B6700DC380B /* EqBeats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EqBeats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDB76BD17819B6700DC380B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8BDB76BF17819B6700DC380B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -344,6 +349,8 @@
 		8BDB76F217819D9100DC380B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8B8081E61782E39C008C1BA9 /* EBImageView.h */,
+				8B8081E71782E39C008C1BA9 /* EBImageView.m */,
 				8BDB77151781A20B00DC380B /* EBTabBarView.h */,
 				8BDB77161781A20B00DC380B /* EBTabBarView.m */,
 				8BDB77181781A21400DC380B /* EBWindow.h */,
@@ -371,6 +378,7 @@
 			children = (
 				8BDB76F417819D9100DC380B /* InfoPlist.strings */,
 				8BDB76F617819D9100DC380B /* EqBeats-Info.plist */,
+				8B8081D41782DC08008C1BA9 /* EqBeats.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -537,6 +545,7 @@
 				8B8081971782CB8A008C1BA9 /* EBShadowedTextField.m in Sources */,
 				8B8081A51782D1C6008C1BA9 /* EBFeaturedViewController.m in Sources */,
 				8BDB770B1781A1B800DC380B /* EBPlaylist.m in Sources */,
+				8B8081E81782E39C008C1BA9 /* EBImageView.m in Sources */,
 				8B8081BA1782D24D008C1BA9 /* EBResourcesController.m in Sources */,
 				8B80818E1782CA02008C1BA9 /* EBPlaylistOptionsCell.m in Sources */,
 				8B8081BD1782D267008C1BA9 /* EBSearchViewController.m in Sources */,
@@ -546,6 +555,7 @@
 				8B80819F1782CC3C008C1BA9 /* UISearchBar+TextField.m in Sources */,
 				8B8081A21782D0FF008C1BA9 /* EBUserCell.m in Sources */,
 				8B8081CE1782D57C008C1BA9 /* EBAPI.m in Sources */,
+				8B8081D61782DC08008C1BA9 /* EqBeats.xcdatamodeld in Sources */,
 				8B8081AE1782D20C008C1BA9 /* EBNavigationController.m in Sources */,
 				8B8081911782CA0F008C1BA9 /* EBRadioCell.m in Sources */,
 				8BDB76F817819D9100DC380B /* EBAppDelegate.m in Sources */,
@@ -774,6 +784,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8B8081D41782DC08008C1BA9 /* EqBeats.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8B8081D51782DC08008C1BA9 /* EqBeats.xcdatamodel */,
+			);
+			currentVersion = 8B8081D51782DC08008C1BA9 /* EqBeats.xcdatamodel */;
+			path = EqBeats.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8BDB76B217819B6700DC380B /* Project object */;
 }

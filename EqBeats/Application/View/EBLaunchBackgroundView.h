@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class EBLaunchBackgroundView;
+@protocol EBLaunchBackgroundViewDataSource <NSObject>
+
+- (UIImage*) imageForLaunchBackgroundView: (EBLaunchBackgroundView*) view;
+
+@end
+
 @interface EBLaunchBackgroundView : UIView
+@property (nonatomic, weak) IBOutlet id<EBLaunchBackgroundViewDataSource> dataSource;
+
+- (void) reloadData;
 
 @end

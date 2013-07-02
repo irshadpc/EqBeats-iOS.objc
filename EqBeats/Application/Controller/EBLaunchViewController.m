@@ -7,12 +7,15 @@
 //
 
 #import "EBLaunchViewController.h"
+#import "EBLaunchBackgroundView.h"
 
-@interface EBLaunchViewController ()
+@interface EBLaunchViewController () <EBLaunchBackgroundViewDataSource>
 
 @end
 
-@implementation EBLaunchViewController
+@implementation EBLaunchViewController {
+    NSInteger _imageCount;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,6 +24,18 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    [self.navigationController setNavigationBarHidden: YES animated: animated];
+    [self.launchView reloadData];
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear: animated];
 }
 
 - (void)viewDidLoad
@@ -33,6 +48,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIImage*) imageForLaunchBackgroundView:(EBLaunchBackgroundView *)view
+{
+    _imageCount = (_imageCount + 1) % 35;
+    return [UIImage imageNamed: [NSString stringWithFormat: @"albumart/%i.jpg", _imageCount]];
 }
 
 @end
