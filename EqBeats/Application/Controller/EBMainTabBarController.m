@@ -9,30 +9,44 @@
 #import "EBMainTabBarController.h"
 
 @interface EBMainTabBarController ()
-
+@property (weak, nonatomic) IBOutlet UIButton *rewindButton;
+@property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
+@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 @end
 
 @implementation EBMainTabBarController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - Button Actions
+
+- (IBAction) nextButtonAction: (id) sender
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    
 }
 
-- (void)viewDidLoad
+- (IBAction) previousButtonAction: (id) sender
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction) playPauseButtonAction: (id) sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+}
+
+- (IBAction) toTabBarControlsAction: (id) sender
+{
+    
+}
+
+- (IBAction) toPlaybackControlsAction: (id) sender
+{
+    
+}
+
+- (IBAction) tabButtonAction: (id) sender
+{
+    
 }
 
 @end

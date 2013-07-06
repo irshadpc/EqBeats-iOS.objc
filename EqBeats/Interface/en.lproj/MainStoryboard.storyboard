@@ -121,7 +121,7 @@
         <!--Player View Controller-->
         <scene sceneID="3aq-0x-jvx">
             <objects>
-                <viewController storyboardIdentifier="NowPlaying" id="kKd-8I-kNo" customClass="PlayerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NowPlaying" id="kKd-8I-kNo" customClass="EBPlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l0n-Ls-9SO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class MarqueeLabel;
+
 @interface EBTabBarView : UIView
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UIView *contentView;
+@property (nonatomic, strong) IBOutlet UIButton *featuredButton;
+@property (nonatomic, strong) IBOutlet UIButton *playlistsButton;
+@property (nonatomic, strong) IBOutlet UIButton *searchButton;
+@property (nonatomic, strong) IBOutlet UIButton *moreButton;
+@property (nonatomic, strong) IBOutlet UILabel *artistLabel;
+@property (nonatomic, strong) IBOutlet MarqueeLabel *songLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *songArtView;
+@property (nonatomic, strong) IBOutlet UIView *shadowView;
+
+@property (nonatomic, copy) NSString *songText;
 
 @end

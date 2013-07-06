@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3381.3" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="EBDownload" representedClassName="EBDownload" syncable="YES">
+        <attribute name="aac" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="art" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mp3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="opus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="original" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vorbis" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="EBModelObject" representedClassName="EBModelObject" isAbstract="YES" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="htmlDescription" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,9 +26,10 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="EBTrack" representedClassName="EBTrack" parentEntity="EBModelObject" syncable="YES">
-        <attribute name="download" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBUser" inverseName="tracks" inverseEntity="EBUser" syncable="YES"/>
+        <relationship name="download" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBDownload" syncable="YES"/>
+        <relationship name="stream" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBDownload" syncable="YES"/>
     </entity>
     <entity name="EBUser" representedClassName="EBUser" parentEntity="EBModelObject" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,10 +38,11 @@
         <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBTrack" inverseName="artist" inverseEntity="EBTrack" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EBUser" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EBTrack" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EBPlaylist" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EBRadioStation" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EBModelObject" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBUser" positionX="196" positionY="90" width="128" height="105"/>
+        <element name="EBTrack" positionX="7" positionY="270" width="128" height="103"/>
+        <element name="EBPlaylist" positionX="360" positionY="270" width="128" height="90"/>
+        <element name="EBRadioStation" positionX="367" positionY="-153" width="128" height="90"/>
+        <element name="EBModelObject" positionX="178" positionY="-183" width="128" height="118"/>
+        <element name="EBDownload" positionX="189" positionY="72" width="128" height="133"/>
     </elements>
 </model>

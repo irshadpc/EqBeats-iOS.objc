@@ -35,6 +35,9 @@
 		8B8081D31782DACD008C1BA9 /* EBPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081D21782DACD008C1BA9 /* EBPlaylistsViewController.m */; };
 		8B8081D61782DC08008C1BA9 /* EqBeats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081D41782DC08008C1BA9 /* EqBeats.xcdatamodeld */; };
 		8B8081E81782E39C008C1BA9 /* EBImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081E71782E39C008C1BA9 /* EBImageView.m */; };
+		8B8081EC1787DF35008C1BA9 /* EBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081EB1787DF35008C1BA9 /* EBModel.m */; };
+		8B8081EF1787F07F008C1BA9 /* EBDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081EE1787F07F008C1BA9 /* EBDownload.m */; };
+		8B8081F21787F0E0008C1BA9 /* EBTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081F11787F0E0008C1BA9 /* EBTrack.m */; };
 		8BDB76BE17819B6700DC380B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDB76BD17819B6700DC380B /* Foundation.framework */; };
 		8BDB76C017819B6700DC380B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDB76BF17819B6700DC380B /* CoreGraphics.framework */; };
 		8BDB76C217819B6700DC380B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDB76C117819B6700DC380B /* UIKit.framework */; };
@@ -53,7 +56,6 @@
 		8BDB77081781A1A400DC380B /* EBModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB77071781A1A400DC380B /* EBModelObject.m */; };
 		8BDB770B1781A1B800DC380B /* EBPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB770A1781A1B800DC380B /* EBPlaylist.m */; };
 		8BDB770E1781A1CD00DC380B /* EBRadioStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB770D1781A1CD00DC380B /* EBRadioStation.m */; };
-		8BDB77111781A1E300DC380B /* EBTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB77101781A1E300DC380B /* EBTrack.m */; };
 		8BDB77141781A1EC00DC380B /* EBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB77131781A1EC00DC380B /* EBUser.m */; };
 		8BDB77171781A20B00DC380B /* EBTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB77161781A20B00DC380B /* EBTabBarView.m */; };
 		8BDB771A1781A21400DC380B /* EBWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB77191781A21400DC380B /* EBWindow.m */; };
@@ -119,6 +121,13 @@
 		8B8081D51782DC08008C1BA9 /* EqBeats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EqBeats.xcdatamodel; sourceTree = "<group>"; };
 		8B8081E61782E39C008C1BA9 /* EBImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBImageView.h; sourceTree = "<group>"; };
 		8B8081E71782E39C008C1BA9 /* EBImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBImageView.m; sourceTree = "<group>"; };
+		8B8081EA1787DF35008C1BA9 /* EBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBModel.h; sourceTree = "<group>"; };
+		8B8081EB1787DF35008C1BA9 /* EBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBModel.m; sourceTree = "<group>"; };
+		8B8081ED1787F07F008C1BA9 /* EBDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EBDownload.h; path = EqBeats/Application/Model/EBDownload.h; sourceTree = SOURCE_ROOT; };
+		8B8081EE1787F07F008C1BA9 /* EBDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EBDownload.m; path = EqBeats/Application/Model/EBDownload.m; sourceTree = SOURCE_ROOT; };
+		8B8081F01787F0E0008C1BA9 /* EBTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTrack.h; sourceTree = "<group>"; };
+		8B8081F11787F0E0008C1BA9 /* EBTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBTrack.m; sourceTree = "<group>"; };
+		8B8081F3178801CE008C1BA9 /* EBLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBLog.h; sourceTree = "<group>"; };
 		8BDB76BA17819B6700DC380B /* EqBeats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EqBeats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDB76BD17819B6700DC380B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8BDB76BF17819B6700DC380B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,8 +153,6 @@
 		8BDB770A1781A1B800DC380B /* EBPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPlaylist.m; sourceTree = "<group>"; };
 		8BDB770C1781A1CD00DC380B /* EBRadioStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRadioStation.h; sourceTree = "<group>"; };
 		8BDB770D1781A1CD00DC380B /* EBRadioStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRadioStation.m; sourceTree = "<group>"; };
-		8BDB770F1781A1E300DC380B /* EBTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTrack.h; sourceTree = "<group>"; };
-		8BDB77101781A1E300DC380B /* EBTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBTrack.m; sourceTree = "<group>"; };
 		8BDB77121781A1EC00DC380B /* EBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBUser.h; sourceTree = "<group>"; };
 		8BDB77131781A1EC00DC380B /* EBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUser.m; sourceTree = "<group>"; };
 		8BDB77151781A20B00DC380B /* EBTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTabBarView.h; sourceTree = "<group>"; };
@@ -198,6 +205,7 @@
 			children = (
 				8B8081CC1782D57C008C1BA9 /* EBAPI.h */,
 				8B8081CD1782D57C008C1BA9 /* EBAPI.m */,
+				8B8081F3178801CE008C1BA9 /* EBLog.h */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -332,14 +340,18 @@
 		8BDB76F117819D9100DC380B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8B8081F01787F0E0008C1BA9 /* EBTrack.h */,
+				8B8081F11787F0E0008C1BA9 /* EBTrack.m */,
+				8B8081ED1787F07F008C1BA9 /* EBDownload.h */,
+				8B8081EE1787F07F008C1BA9 /* EBDownload.m */,
+				8B8081EA1787DF35008C1BA9 /* EBModel.h */,
+				8B8081EB1787DF35008C1BA9 /* EBModel.m */,
 				8BDB77061781A1A400DC380B /* EBModelObject.h */,
 				8BDB77071781A1A400DC380B /* EBModelObject.m */,
 				8BDB77091781A1B800DC380B /* EBPlaylist.h */,
 				8BDB770A1781A1B800DC380B /* EBPlaylist.m */,
 				8BDB770C1781A1CD00DC380B /* EBRadioStation.h */,
 				8BDB770D1781A1CD00DC380B /* EBRadioStation.m */,
-				8BDB770F1781A1E300DC380B /* EBTrack.h */,
-				8BDB77101781A1E300DC380B /* EBTrack.m */,
 				8BDB77121781A1EC00DC380B /* EBUser.h */,
 				8BDB77131781A1EC00DC380B /* EBUser.m */,
 			);
@@ -540,11 +552,12 @@
 				8B8081C01782D27C008C1BA9 /* EBTracksViewController.m in Sources */,
 				8B8081B41782D230008C1BA9 /* EBPlaylistViewController.m in Sources */,
 				8B80819A1782CBB8008C1BA9 /* EBTrackCell.m in Sources */,
-				8BDB77111781A1E300DC380B /* EBTrack.m in Sources */,
 				8BDB77081781A1A400DC380B /* EBModelObject.m in Sources */,
 				8B8081971782CB8A008C1BA9 /* EBShadowedTextField.m in Sources */,
 				8B8081A51782D1C6008C1BA9 /* EBFeaturedViewController.m in Sources */,
 				8BDB770B1781A1B800DC380B /* EBPlaylist.m in Sources */,
+				8B8081F21787F0E0008C1BA9 /* EBTrack.m in Sources */,
+				8B8081EC1787DF35008C1BA9 /* EBModel.m in Sources */,
 				8B8081E81782E39C008C1BA9 /* EBImageView.m in Sources */,
 				8B8081BA1782D24D008C1BA9 /* EBResourcesController.m in Sources */,
 				8B80818E1782CA02008C1BA9 /* EBPlaylistOptionsCell.m in Sources */,
@@ -555,6 +568,7 @@
 				8B80819F1782CC3C008C1BA9 /* UISearchBar+TextField.m in Sources */,
 				8B8081A21782D0FF008C1BA9 /* EBUserCell.m in Sources */,
 				8B8081CE1782D57C008C1BA9 /* EBAPI.m in Sources */,
+				8B8081EF1787F07F008C1BA9 /* EBDownload.m in Sources */,
 				8B8081D61782DC08008C1BA9 /* EqBeats.xcdatamodeld in Sources */,
 				8B8081AE1782D20C008C1BA9 /* EBNavigationController.m in Sources */,
 				8B8081911782CA0F008C1BA9 /* EBRadioCell.m in Sources */,

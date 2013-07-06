@@ -5,11 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.9"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainTabBarController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EBMainTabBarController">
             <connections>
-                <outlet property="forward_button" destination="41" id="56"/>
-                <outlet property="play_pause_button" destination="40" id="57"/>
-                <outlet property="rewind_button" destination="42" id="58"/>
+                <outlet property="forwardButton" destination="41" id="LQ2-cd-MNy"/>
+                <outlet property="playPauseButton" destination="40" id="FBi-rI-fi6"/>
+                <outlet property="rewindButton" destination="42" id="83n-La-vwW"/>
                 <outletCollection property="buttons" destination="8" id="26"/>
                 <outletCollection property="buttons" destination="9" id="27"/>
                 <outletCollection property="buttons" destination="10" id="28"/>
@@ -18,11 +18,11 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="2" customClass="EQBeatsTabBarView">
+        <view contentMode="scaleToFill" id="2" customClass="EBTabBarView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TabBarBackground.png" id="3">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TabBarBackground" id="3">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -30,7 +30,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </scrollView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TabBarDropShadow.png" id="36">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TabBarDropShadow" id="36">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="5"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -272,9 +272,9 @@
         <image name="RadioIconSelected" width="26" height="24"/>
         <image name="SearchIcon" width="24" height="24"/>
         <image name="SearchIconSelected" width="24" height="24"/>
-        <image name="TabBarBackground.png" width="320" height="50"/>
+        <image name="TabBarBackground" width="320" height="50"/>
         <image name="TabBarBackwardButton" width="36" height="36"/>
-        <image name="TabBarDropShadow.png" width="320" height="5"/>
+        <image name="TabBarDropShadow" width="320" height="5"/>
         <image name="TabBarForwardButton" width="36" height="36"/>
         <image name="TabBarPlayButton" width="36" height="36"/>
     </resources>
