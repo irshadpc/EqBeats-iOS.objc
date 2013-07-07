@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EBModel.h"
+#import "EBAudioController.h"
+#import "EBResourcesController.h"
 
 @interface EBTracksViewController : UITableViewController
 

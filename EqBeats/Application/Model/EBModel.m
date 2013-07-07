@@ -19,4 +19,13 @@
     return sharedModel;
 }
 
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        self.audioController = [EBAudioController new];
+    }
+    return self;
+}
+
 @end

@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *playlistsButton;
 @property (nonatomic, strong) IBOutlet UIButton *searchButton;
 @property (nonatomic, strong) IBOutlet UIButton *moreButton;
+@property (nonatomic, strong) IBOutlet UIButton *radioButton;
 @property (nonatomic, strong) IBOutlet UILabel *artistLabel;
 @property (nonatomic, strong) IBOutlet MarqueeLabel *songLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *songArtView;

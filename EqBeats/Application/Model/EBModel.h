@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EBAudioController.h"
 
-@class EBAudioController;
 @interface EBModel : NSObject
 @property (nonatomic, strong) EBAudioController *audioController;
 

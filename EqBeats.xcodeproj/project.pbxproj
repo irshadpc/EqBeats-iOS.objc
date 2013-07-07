@@ -27,7 +27,7 @@
 		8B8081C01782D27C008C1BA9 /* EBTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081BF1782D27C008C1BA9 /* EBTracksViewController.m */; };
 		8B8081C21782D2E9008C1BA9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8081C11782D2E9008C1BA9 /* CoreData.framework */; };
 		8B8081C51782D3FE008C1BA9 /* albumart in Resources */ = {isa = PBXBuildFile; fileRef = 8B8081C41782D3FE008C1BA9 /* albumart */; };
-		8B8081C71782D4E0008C1BA9 /* EQBeatsTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8081C61782D4E0008C1BA9 /* EQBeatsTabBarView.xib */; };
+		8B8081C71782D4E0008C1BA9 /* EBTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8081C61782D4E0008C1BA9 /* EBTabBarView.xib */; };
 		8B8081CA1782D522008C1BA9 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8081C81782D522008C1BA9 /* TrackCell.xib */; };
 		8B8081CB1782D522008C1BA9 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8081C91782D522008C1BA9 /* UserCell.xib */; };
 		8B8081CE1782D57C008C1BA9 /* EBAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081CD1782D57C008C1BA9 /* EBAPI.m */; };
@@ -49,7 +49,6 @@
 		8BDB76E317819B6700DC380B /* EqBeatsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB76E217819B6700DC380B /* EqBeatsTests.m */; };
 		8BDB76F817819D9100DC380B /* EBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB76F017819D9100DC380B /* EBAppDelegate.m */; };
 		8BDB76F917819D9100DC380B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BDB76F417819D9100DC380B /* InfoPlist.strings */; };
-		8BDB76FA17819D9100DC380B /* EqBeats-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BDB76F617819D9100DC380B /* EqBeats-Info.plist */; };
 		8BDB76FF17819E7E00DC380B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BDB76FD17819E7E00DC380B /* MainStoryboard.storyboard */; };
 		8BDB770217819F5700DC380B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB770117819F5700DC380B /* main.m */; };
 		8BDB77051781A18900DC380B /* EBAudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB77041781A18900DC380B /* EBAudioController.m */; };
@@ -110,7 +109,7 @@
 		8B8081BF1782D27C008C1BA9 /* EBTracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBTracksViewController.m; sourceTree = "<group>"; };
 		8B8081C11782D2E9008C1BA9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8B8081C41782D3FE008C1BA9 /* albumart */ = {isa = PBXFileReference; lastKnownFileType = folder; path = albumart; sourceTree = "<group>"; };
-		8B8081C61782D4E0008C1BA9 /* EQBeatsTabBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EQBeatsTabBarView.xib; sourceTree = "<group>"; };
+		8B8081C61782D4E0008C1BA9 /* EBTabBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBTabBarView.xib; sourceTree = "<group>"; };
 		8B8081C81782D522008C1BA9 /* TrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		8B8081C91782D522008C1BA9 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		8B8081CC1782D57C008C1BA9 /* EBAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBAPI.h; sourceTree = "<group>"; };
@@ -398,7 +397,7 @@
 		8BDB76F717819D9100DC380B /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				8B8081C61782D4E0008C1BA9 /* EQBeatsTabBarView.xib */,
+				8B8081C61782D4E0008C1BA9 /* EBTabBarView.xib */,
 				8BDB76FD17819E7E00DC380B /* MainStoryboard.storyboard */,
 				8B8081C81782D522008C1BA9 /* TrackCell.xib */,
 				8B8081C91782D522008C1BA9 /* UserCell.xib */,
@@ -458,6 +457,11 @@
 				TargetAttributes = {
 					8BDB76B917819B6700DC380B = {
 						DevelopmentTeam = UZR9WVPJ62;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					8BDB76D417819B6700DC380B = {
 						TestTargetID = 8BDB76B917819B6700DC380B;
@@ -487,9 +491,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BDB76FA17819D9100DC380B /* EqBeats-Info.plist in Resources */,
 				8B8081C51782D3FE008C1BA9 /* albumart in Resources */,
-				8B8081C71782D4E0008C1BA9 /* EQBeatsTabBarView.xib in Resources */,
+				8B8081C71782D4E0008C1BA9 /* EBTabBarView.xib in Resources */,
 				8B8081CA1782D522008C1BA9 /* TrackCell.xib in Resources */,
 				8B8081CB1782D522008C1BA9 /* UserCell.xib in Resources */,
 				8BDB76D017819B6700DC380B /* Images.xcassets in Resources */,
