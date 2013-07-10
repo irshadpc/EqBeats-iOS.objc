@@ -18,4 +18,12 @@
 + (UIImage*) placeholderImageForQuality: (EBTrackArtQuality) quality;
 + (UIImage*) noArtworkImageForQuality: (EBTrackArtQuality) quality;
 
+#pragma mark - Paths
+
++ (NSURL*) applicationSupportPath;
++ (NSURL*) libraryPath;
++ (NSURL*) documentsPath;
++ (NSURL*) cachePath;
++ (NSURL*) applicationBinaryPath;
+
 @end

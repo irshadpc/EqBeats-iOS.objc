@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3381.3" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3383" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="EBDownload" representedClassName="EBDownload" syncable="YES">
         <attribute name="aac" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="art" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,7 +13,7 @@
         <attribute name="htmlDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="plainDetail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
     </entity>
     <entity name="EBPlaylist" representedClassName="EBPlaylist" parentEntity="EBModelObject" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,11 +38,11 @@
         <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBTrack" inverseName="artist" inverseEntity="EBTrack" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EBUser" positionX="196" positionY="90" width="128" height="105"/>
-        <element name="EBTrack" positionX="7" positionY="270" width="128" height="103"/>
-        <element name="EBPlaylist" positionX="360" positionY="270" width="128" height="90"/>
-        <element name="EBRadioStation" positionX="367" positionY="-153" width="128" height="90"/>
-        <element name="EBModelObject" positionX="178" positionY="-183" width="128" height="118"/>
-        <element name="EBDownload" positionX="189" positionY="72" width="128" height="133"/>
+        <element name="EBDownload" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBModelObject" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBPlaylist" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBRadioStation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBTrack" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBUser" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

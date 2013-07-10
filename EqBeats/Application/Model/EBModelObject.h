@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@interface EBKeyTransformer : NSValueTransformer
+@end
 
 @interface EBModelObject : NSManagedObject
 
@@ -17,5 +19,9 @@
 @property (nonatomic, retain) NSString * htmlDescription;
 @property (nonatomic, retain) NSString * link;
 @property (nonatomic, retain) NSString * plainDetail;
+
++ (NSValueTransformer*) mappingKeyTransformer;
++ (instancetype) objectFromMappableData: (NSDictionary*) mappableData inContext: (NSManagedObjectContext*) context;
++ (instancetype) objectWithUID: (NSUInteger) uid inContext: (NSManagedObjectContext*) context;
 
 @end

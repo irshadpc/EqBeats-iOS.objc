@@ -51,4 +51,40 @@
     }
 }
 
++ (NSURL*) applicationSupportPath
+{
+    NSURL *appSupport = [[self libraryPath] URLByAppendingPathComponent: @"Application Support"];
+    NSFileManager *fileManager = [NSFileManager new];
+    [fileManager createDirectoryAtURL: appSupport withIntermediateDirectories: NO attributes: nil error: nil];
+    return appSupport;
+}
+
++ (NSURL*) cachePath
+{
+    NSURL *cachePath = [NSURL URLWithString: [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]];
+    NSFileManager *fileManager = [NSFileManager new];
+    [fileManager createDirectoryAtURL: cachePath withIntermediateDirectories: YES attributes: nil error: nil];
+    return cachePath;
+}
+
++ (NSURL*) libraryPath
+{
+    return [NSURL URLWithString: [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject]];
+}
+
++ (NSURL*) documentsPath
+{
+    return [NSURL URLWithString: [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
+}
+
++ (NSURL*) applicationBinaryPath
+{
+    NSURL *path = [[NSBundle mainBundle] bundleURL];
+    NSArray *pathArray = [path pathComponents];
+    
+    NSString *appName = [pathArray lastObject];
+    NSString *binaryName = [[appName componentsSeparatedByString:@"."] objectAtIndex:0];
+    return [path URLByAppendingPathComponent:binaryName];
+}
+
 @end

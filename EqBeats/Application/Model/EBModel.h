@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "EBAudioController.h"
 
 @interface EBModel : NSObject
 @property (nonatomic, strong) EBAudioController *audioController;
+@property (nonatomic, strong, readonly) NSManagedObjectContext *mainThreadObjectContext;
+@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 + (EBModel*) sharedModel;
 
