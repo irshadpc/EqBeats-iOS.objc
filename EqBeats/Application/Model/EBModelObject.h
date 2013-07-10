@@ -23,5 +23,6 @@
 + (NSValueTransformer*) mappingKeyTransformer;
 + (instancetype) objectFromMappableData: (NSDictionary*) mappableData inContext: (NSManagedObjectContext*) context;
 + (instancetype) objectWithUID: (NSUInteger) uid inContext: (NSManagedObjectContext*) context;
++ (instancetype) objectWithUID: (NSUInteger) uid inContext: (NSManagedObjectContext*) context createIfNotFound: (BOOL) create;
 
 @end
