@@ -8,7 +8,7 @@
 
 #import "EBModelObject.h"
 
-@implementation EBKeyTransformer
+@implementation EBModelObjectKeyTransformer
 
 static NSDictionary *map = nil;
 static NSDictionary *inverseMap = nil;
@@ -73,17 +73,15 @@ NS_INLINE void setupMap()
 
 + (NSValueTransformer*) mappingKeyTransformer
 {
-    static EBKeyTransformer* sharedTransformer = nil;
+    static EBModelObjectKeyTransformer* sharedTransformer = nil;
     if (sharedTransformer == nil) {
-        sharedTransformer = [EBKeyTransformer new];
+        sharedTransformer = [EBModelObjectKeyTransformer new];
     }
     return sharedTransformer;
 }
 
 + (instancetype) objectFromMappableData:(NSDictionary *)mappableData inContext:(NSManagedObjectContext *)context
 {
-    NSEntityDescription *entityDesc = [NSEntityDescription entityForName: NSStringFromClass(self) inManagedObjectContext: context];
-    NSDictionary *relations = [entityDesc relationshipsByName];
     NSString *idKey = [[self mappingKeyTransformer] reverseTransformedValue: @"uid"];
     NSNumber *idValue = mappableData[idKey];
     if (idValue == nil) {
@@ -92,18 +90,8 @@ NS_INLINE void setupMap()
         return nil;
     }
     
-    EBModelObject *entity = [self objectWithUID: [idValue integerValue] inContext: context createIfNotFound: YES];
-    for (NSString *key in mappableData) {
-        NSString *propKey = [[self mappingKeyTransformer] transformedValue: key];
-        id value = mappableData[key];
-        if ([value isKindOfClass: [NSDictionary class]] && relations[propKey] != nil) {
-            // This is a relationship... use sub-mapping.
-            NSRelationshipDescription *prop = relations[propKey];
-            Class destinationClass = NSClassFromString([[prop destinationEntity] managedObjectClassName]);
-            value = [destinationClass objectFromMappableData: value inContext: context];
-        }
-        [entity setValue: value forKey: propKey];
-    }
+    EBModelObject *entity = [(id)self objectWithUID: [idValue integerValue] inContext: context createIfNotFound: YES];
+    [self updateEntity: entity withMappableData: mappableData inContext: context];
     return entity;
 }
 

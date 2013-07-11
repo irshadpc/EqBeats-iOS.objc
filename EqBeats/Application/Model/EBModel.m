@@ -28,6 +28,7 @@
     self = [super init];
     if (self) {
         self.audioController = [EBAudioController new];
+        [self mainThreadObjectContext];
     }
     return self;
 }

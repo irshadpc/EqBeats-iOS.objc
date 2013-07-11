@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "EBMappableObject.h"
 
-
-@interface EBRadioStation : NSManagedObject
+@interface EBRadioStation : EBMappableObject
 
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSString * name;

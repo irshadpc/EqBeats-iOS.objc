@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "EBMappableObject.h"
 
-@interface EBKeyTransformer : NSValueTransformer
+@interface EBModelObjectKeyTransformer : NSValueTransformer
 @end
 
-@interface EBModelObject : NSManagedObject
+@interface EBModelObject : EBMappableObject
 
 @property (nonatomic) int32_t uid;
 @property (nonatomic, retain) NSString * detail;
@@ -20,8 +21,6 @@
 @property (nonatomic, retain) NSString * link;
 @property (nonatomic, retain) NSString * plainDetail;
 
-+ (NSValueTransformer*) mappingKeyTransformer;
-+ (instancetype) objectFromMappableData: (NSDictionary*) mappableData inContext: (NSManagedObjectContext*) context;
 + (instancetype) objectWithUID: (NSUInteger) uid inContext: (NSManagedObjectContext*) context;
 + (instancetype) objectWithUID: (NSUInteger) uid inContext: (NSManagedObjectContext*) context createIfNotFound: (BOOL) create;
 

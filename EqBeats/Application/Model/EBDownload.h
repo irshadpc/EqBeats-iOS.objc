@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "EBMappableObject.h"
 
-
-@interface EBDownload : NSManagedObject
+@interface EBDownload : EBMappableObject
 
 @property (nonatomic, retain) NSString * art;
 @property (nonatomic, retain) NSString * opus;

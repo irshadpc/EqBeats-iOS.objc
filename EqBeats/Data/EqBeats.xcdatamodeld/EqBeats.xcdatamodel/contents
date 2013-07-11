@@ -7,6 +7,8 @@
         <attribute name="opus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="original" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vorbis" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fromDownload" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBTrack" inverseName="download" inverseEntity="EBTrack" syncable="YES"/>
+        <relationship name="fromStream" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBTrack" inverseName="stream" inverseEntity="EBTrack" syncable="YES"/>
     </entity>
     <entity name="EBModelObject" representedClassName="EBModelObject" isAbstract="YES" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,7 +20,7 @@
     <entity name="EBPlaylist" representedClassName="EBPlaylist" parentEntity="EBModelObject" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBUser" inverseName="playlists" inverseEntity="EBUser" syncable="YES"/>
-        <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBTrack" syncable="YES"/>
+        <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBTrack" inverseName="playlists" inverseEntity="EBTrack" syncable="YES"/>
     </entity>
     <entity name="EBRadioStation" representedClassName="EBRadioStation" syncable="YES">
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,8 +30,9 @@
     <entity name="EBTrack" representedClassName="EBTrack" parentEntity="EBModelObject" syncable="YES">
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBUser" inverseName="tracks" inverseEntity="EBUser" syncable="YES"/>
-        <relationship name="download" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBDownload" syncable="YES"/>
-        <relationship name="stream" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBDownload" syncable="YES"/>
+        <relationship name="download" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBDownload" inverseName="fromDownload" inverseEntity="EBDownload" syncable="YES"/>
+        <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EBPlaylist" inverseName="tracks" inverseEntity="EBPlaylist" syncable="YES"/>
+        <relationship name="stream" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBDownload" inverseName="fromStream" inverseEntity="EBDownload" syncable="YES"/>
     </entity>
     <entity name="EBUser" representedClassName="EBUser" parentEntity="EBModelObject" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>

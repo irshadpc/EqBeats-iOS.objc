@@ -40,6 +40,7 @@
 		8B8081EC1787DF35008C1BA9 /* EBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081EB1787DF35008C1BA9 /* EBModel.m */; };
 		8B8081EF1787F07F008C1BA9 /* EBDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081EE1787F07F008C1BA9 /* EBDownload.m */; };
 		8B8081F21787F0E0008C1BA9 /* EBTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081F11787F0E0008C1BA9 /* EBTrack.m */; };
+		8BD45CC3178ED56A00723431 /* EBMappableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD45CC2178ED56A00723431 /* EBMappableObject.m */; };
 		8BDB76BE17819B6700DC380B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDB76BD17819B6700DC380B /* Foundation.framework */; };
 		8BDB76C017819B6700DC380B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDB76BF17819B6700DC380B /* CoreGraphics.framework */; };
 		8BDB76C217819B6700DC380B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDB76C117819B6700DC380B /* UIKit.framework */; };
@@ -134,6 +135,8 @@
 		8B8081F01787F0E0008C1BA9 /* EBTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTrack.h; sourceTree = "<group>"; };
 		8B8081F11787F0E0008C1BA9 /* EBTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBTrack.m; sourceTree = "<group>"; };
 		8B8081F3178801CE008C1BA9 /* EBLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBLog.h; sourceTree = "<group>"; };
+		8BD45CC1178ED56A00723431 /* EBMappableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBMappableObject.h; sourceTree = "<group>"; };
+		8BD45CC2178ED56A00723431 /* EBMappableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBMappableObject.m; sourceTree = "<group>"; };
 		8BDB76BA17819B6700DC380B /* EqBeats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EqBeats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDB76BD17819B6700DC380B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8BDB76BF17819B6700DC380B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -357,6 +360,8 @@
 				8B8081EE1787F07F008C1BA9 /* EBDownload.m */,
 				8B8081EA1787DF35008C1BA9 /* EBModel.h */,
 				8B8081EB1787DF35008C1BA9 /* EBModel.m */,
+				8BD45CC1178ED56A00723431 /* EBMappableObject.h */,
+				8BD45CC2178ED56A00723431 /* EBMappableObject.m */,
 				8BDB77061781A1A400DC380B /* EBModelObject.h */,
 				8BDB77071781A1A400DC380B /* EBModelObject.m */,
 				8BDB77091781A1B800DC380B /* EBPlaylist.h */,
@@ -565,6 +570,7 @@
 				8BDB77141781A1EC00DC380B /* EBUser.m in Sources */,
 				8BDB771D1781A22500DC380B /* EBLaunchBackgroundView.m in Sources */,
 				8B8081C01782D27C008C1BA9 /* EBTracksViewController.m in Sources */,
+				8BD45CC3178ED56A00723431 /* EBMappableObject.m in Sources */,
 				8B8081B41782D230008C1BA9 /* EBPlaylistViewController.m in Sources */,
 				8B80819A1782CBB8008C1BA9 /* EBTrackCell.m in Sources */,
 				8BDB77081781A1A400DC380B /* EBModelObject.m in Sources */,
