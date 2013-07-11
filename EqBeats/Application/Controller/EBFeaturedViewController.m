@@ -28,6 +28,8 @@
     [self.refreshControl addTarget: self action: @selector(refreshControlChanged:) forControlEvents: UIControlEventValueChanged];
     if (EBDeviceSystemMajorVersion() >= 7) {
         self.segmentedControl.tintColor = [UIColor whiteColor];
+    } else {
+        self.segmentedControl.tintColor = [UIColor colorWithRGBA: 0x8239ABB3];
     }
 }
 
