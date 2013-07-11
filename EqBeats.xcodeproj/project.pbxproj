@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		70C7834F430747419A702B54 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D55148FE9BC4CE18B300958 /* libPods.a */; };
+		8B51D91B178EC0E400264F1D /* NSString+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D918178EC0E400264F1D /* NSString+Color.m */; };
+		8B51D91C178EC0E400264F1D /* UIColor+HexHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D91A178EC0E400264F1D /* UIColor+HexHTML.m */; };
 		8B80818E1782CA02008C1BA9 /* EBPlaylistOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B80818D1782CA02008C1BA9 /* EBPlaylistOptionsCell.m */; };
 		8B8081911782CA0F008C1BA9 /* EBRadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081901782CA0F008C1BA9 /* EBRadioCell.m */; };
 		8B8081941782CA4A008C1BA9 /* EBRoundProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081931782CA4A008C1BA9 /* EBRoundProgressView.m */; };
@@ -73,6 +75,11 @@
 
 /* Begin PBXFileReference section */
 		4D55148FE9BC4CE18B300958 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B51D917178EC0E400264F1D /* NSString+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Color.h"; sourceTree = "<group>"; };
+		8B51D918178EC0E400264F1D /* NSString+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Color.m"; sourceTree = "<group>"; };
+		8B51D919178EC0E400264F1D /* UIColor+HexHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexHTML.h"; sourceTree = "<group>"; };
+		8B51D91A178EC0E400264F1D /* UIColor+HexHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexHTML.m"; sourceTree = "<group>"; };
+		8B51D91D178EC46100264F1D /* EqBeatsCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqBeatsCategories.h; sourceTree = "<group>"; };
 		8B80818C1782CA02008C1BA9 /* EBPlaylistOptionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPlaylistOptionsCell.h; sourceTree = "<group>"; };
 		8B80818D1782CA02008C1BA9 /* EBPlaylistOptionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPlaylistOptionsCell.m; sourceTree = "<group>"; };
 		8B80818F1782CA0F008C1BA9 /* EBRadioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRadioCell.h; sourceTree = "<group>"; };
@@ -193,8 +200,13 @@
 		8B80819B1782CC03008C1BA9 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				8B51D917178EC0E400264F1D /* NSString+Color.h */,
+				8B51D918178EC0E400264F1D /* NSString+Color.m */,
 				8B80819D1782CC3C008C1BA9 /* UISearchBar+TextField.h */,
 				8B80819E1782CC3C008C1BA9 /* UISearchBar+TextField.m */,
+				8B51D919178EC0E400264F1D /* UIColor+HexHTML.h */,
+				8B51D91A178EC0E400264F1D /* UIColor+HexHTML.m */,
+				8B51D91D178EC46100264F1D /* EqBeatsCategories.h */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -564,6 +576,8 @@
 				8B8081E81782E39C008C1BA9 /* EBImageView.m in Sources */,
 				8B8081BA1782D24D008C1BA9 /* EBResourcesController.m in Sources */,
 				8B80818E1782CA02008C1BA9 /* EBPlaylistOptionsCell.m in Sources */,
+				8B51D91B178EC0E400264F1D /* NSString+Color.m in Sources */,
+				8B51D91C178EC0E400264F1D /* UIColor+HexHTML.m in Sources */,
 				8B8081BD1782D267008C1BA9 /* EBSearchViewController.m in Sources */,
 				8BDB77171781A20B00DC380B /* EBTabBarView.m in Sources */,
 				8B8081A81782D1D8008C1BA9 /* EBLaunchViewController.m in Sources */,
