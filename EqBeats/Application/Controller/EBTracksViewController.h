@@ -15,6 +15,9 @@
 @interface EBTracksViewController : UITableViewController
 @property (nonatomic, strong) UINib *trackCellNib;
 
+- (void) setNeedsReload;
+- (void) reloadData;
+
 - (EBTrack*) trackForIndexPath: (NSIndexPath*) indexPath;
 - (NSArray*) tracksForQueueAtIndexPath: (NSIndexPath*) indexPath;
 - (EBTrackCell*) trackCellForIndexPath: (NSIndexPath*) indexPath;

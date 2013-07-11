@@ -7,6 +7,7 @@
 //
 
 #import "EBNavigationController.h"
+#import "EBResourcesController.h"
 
 @interface EBNavigationController ()
 
@@ -17,8 +18,12 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationBar setBackgroundImage: [UIImage imageNamed: @"NavigationBarBackground.png"]
-                             forBarMetrics: UIBarMetricsDefault];
+    if (EBDeviceSystemMajorVersion() < 7) {
+        [self.navigationBar setBackgroundImage: [UIImage imageNamed: @"NavigationBarBackground.png"]
+                                 forBarMetrics: UIBarMetricsDefault];
+    } else {
+        [self.navigationBar setBarTintColor: @"#8239AB".color];
+    }
 }
 
 @end

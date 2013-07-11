@@ -9,7 +9,9 @@
 #import "EBTracksViewController.h"
 #import "EBUser.h"
 
-@interface EBTracksViewController ()
+@interface EBTracksViewController () {
+    BOOL _needsReload;
+}
 
 @end
 
@@ -28,8 +30,29 @@
 {
     [super viewDidLoad];
     if (self.trackCellNib != nil) {
-        [self.tableView registerNib: self.trackCellNib forCellReuseIdentifier: @"TrackCell"];
+        [self.tableView registerNib: self.trackCellNib forCellReuseIdentifier: @"EBTrackCell"];
     }
+}
+
+- (void) setNeedsReload
+{
+    _needsReload = YES;
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(_doReload) object:nil];
+    [self performSelector: @selector(_doReload) withObject: nil afterDelay: 1.0/60.0 inModes: @[ NSRunLoopCommonModes ]];
+}
+
+- (void) _doReload
+{
+    if (_needsReload) {
+        [self reloadData];
+        _needsReload = NO;
+    }
+}
+
+- (void) reloadData
+{
+    _needsReload = NO;
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +80,7 @@
 
 - (EBTrackCell*) trackCellForIndexPath:(NSIndexPath *)indexPath
 {
-    EBTrackCell *cell = [self.tableView dequeueReusableCellWithIdentifier: @"TrackCell"];
+    EBTrackCell *cell = [self.tableView dequeueReusableCellWithIdentifier: @"EBTrackCell"];
     EBTrack *track = [self trackForIndexPath: indexPath];
     if (cell.backgroundView == nil) {
         cell.backgroundView = [[UIView alloc] initWithFrame: cell.contentView.bounds];

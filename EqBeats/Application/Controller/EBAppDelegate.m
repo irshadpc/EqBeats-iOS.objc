@@ -7,11 +7,13 @@
 //
 
 #import "EBAppDelegate.h"
+#import "EBModel.h"
 
 @implementation EBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [EBModel sharedModel];
     return YES;
 }
 

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "EBTrack.h"
 
+extern NSUInteger EBDeviceSystemMajorVersion();
+
 @interface EBResourcesController : NSObject
 
 + (void) setImageForImageView: (UIImageView*) imageView

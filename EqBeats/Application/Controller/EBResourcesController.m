@@ -9,6 +9,15 @@
 #import "EBResourcesController.h"
 #import "UIImageView+WebCache.h"
 
+NSUInteger EBDeviceSystemMajorVersion() {
+    static NSUInteger _deviceSystemMajorVersion = -1;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _deviceSystemMajorVersion = [[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue];
+    });
+    return _deviceSystemMajorVersion;
+}
+
 @implementation EBResourcesController
 
 + (void) setImageForImageView: (UIImageView*) imageView
@@ -61,7 +70,7 @@
 
 + (NSURL*) cachePath
 {
-    NSURL *cachePath = [NSURL URLWithString: [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]];
+    NSURL *cachePath = [NSURL fileURLWithPath: [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]];
     NSFileManager *fileManager = [NSFileManager new];
     [fileManager createDirectoryAtURL: cachePath withIntermediateDirectories: YES attributes: nil error: nil];
     return cachePath;
@@ -69,12 +78,12 @@
 
 + (NSURL*) libraryPath
 {
-    return [NSURL URLWithString: [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject]];
+    return [NSURL fileURLWithPath: [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject]];
 }
 
 + (NSURL*) documentsPath
 {
-    return [NSURL URLWithString: [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
+    return [NSURL fileURLWithPath: [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
 }
 
 + (NSURL*) applicationBinaryPath

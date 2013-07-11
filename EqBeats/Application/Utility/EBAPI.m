@@ -33,7 +33,7 @@ NSString * const EBAPIBaseURL = @"https://eqbeats.org";
     NSURL *baseURL = [NSURL URLWithString: EBAPIBaseURL];
     NSString *urlString = @"/tracks/latest/json";
     NSURL *url = [NSURL URLWithString: urlString relativeToURL: baseURL];
-    [self getObjectsFromURL: url objectClass: [EBUser class] completion: completion];
+    [self getObjectsFromURL: url objectClass: [EBTrack class] completion: completion];
 }
 
 + (void) getFeaturedTracksCompletion: (void (^)(NSArray *objects, NSError *error)) completion
@@ -41,7 +41,7 @@ NSString * const EBAPIBaseURL = @"https://eqbeats.org";
     NSURL *baseURL = [NSURL URLWithString: EBAPIBaseURL];
     NSString *urlString = @"/tracks/featured/json";
     NSURL *url = [NSURL URLWithString: urlString relativeToURL: baseURL];
-    [self getObjectsFromURL: url objectClass: [EBUser class] completion: completion];
+    [self getObjectsFromURL: url objectClass: [EBTrack class] completion: completion];
 }
 
 + (void) getRandomTracksCompletion: (void (^)(NSArray *objects, NSError *error)) completion
@@ -49,7 +49,7 @@ NSString * const EBAPIBaseURL = @"https://eqbeats.org";
     NSURL *baseURL = [NSURL URLWithString: EBAPIBaseURL];
     NSString *urlString = @"/tracks/random/json";
     NSURL *url = [NSURL URLWithString: urlString relativeToURL: baseURL];
-    [self getObjectsFromURL: url objectClass: [EBUser class] completion: completion];
+    [self getObjectsFromURL: url objectClass: [EBTrack class] completion: completion];
 }
 
 + (void) getTracksWithSearchQuery: (NSString*) query completion: (void (^)(NSArray *objects, NSError *error)) completion
@@ -59,7 +59,7 @@ NSString * const EBAPIBaseURL = @"https://eqbeats.org";
         NSURL *baseURL = [NSURL URLWithString: EBAPIBaseURL];
         NSString *urlString = [NSString stringWithFormat: @"/tracks/search/json?q=%@", query];
         NSURL *url = [NSURL URLWithString: urlString relativeToURL: baseURL];
-        [self getObjectsFromURL: url objectClass: [EBUser class] completion: completion];
+        [self getObjectsFromURL: url objectClass: [EBTrack class] completion: completion];
     }
 }
 
