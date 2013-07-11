@@ -10,4 +10,6 @@
 
 @interface EBFeaturedViewController : EBTracksViewController
 
+- (IBAction) segmentedControlChanged:(id)sender;
+
 @end

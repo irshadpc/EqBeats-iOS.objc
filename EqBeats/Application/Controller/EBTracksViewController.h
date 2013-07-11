@@ -10,7 +10,14 @@
 #import "EBModel.h"
 #import "EBAudioController.h"
 #import "EBResourcesController.h"
+#import "EBTrackCell.h"
 
 @interface EBTracksViewController : UITableViewController
+@property (nonatomic, strong) UINib *trackCellNib;
+
+- (EBTrack*) trackForIndexPath: (NSIndexPath*) indexPath;
+- (NSArray*) tracksForQueueAtIndexPath: (NSIndexPath*) indexPath;
+- (EBTrackCell*) trackCellForIndexPath: (NSIndexPath*) indexPath;
+
 
 @end

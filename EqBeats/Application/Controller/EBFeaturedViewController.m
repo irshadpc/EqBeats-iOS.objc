@@ -14,6 +14,9 @@
 
 @implementation EBFeaturedViewController
 
-
+- (void) segmentedControlChanged:(id)sender
+{
+    
+}
 
 @end

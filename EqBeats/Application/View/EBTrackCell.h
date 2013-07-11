@@ -9,5 +9,7 @@
 #import "SDNibLoadedTableViewCell.h"
 
 @interface EBTrackCell : SDNibLoadedTableViewCell
-
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *detailTitleLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *artworkView;
 @end
