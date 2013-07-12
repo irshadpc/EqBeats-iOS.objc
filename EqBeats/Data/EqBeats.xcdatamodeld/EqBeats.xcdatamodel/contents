@@ -14,7 +14,6 @@
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="htmlDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="plainDetail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
     </entity>
     <entity name="EBPlaylist" representedClassName="EBPlaylist" parentEntity="EBModelObject" syncable="YES">
@@ -41,11 +40,11 @@
         <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBTrack" inverseName="artist" inverseEntity="EBTrack" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EBDownload" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EBModelObject" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EBPlaylist" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EBRadioStation" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EBTrack" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EBUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBDownload" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="EBModelObject" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="EBPlaylist" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="EBRadioStation" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="EBTrack" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="EBUser" positionX="0" positionY="0" width="128" height="105"/>
     </elements>
 </model>

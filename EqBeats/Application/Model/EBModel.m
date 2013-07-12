@@ -71,9 +71,30 @@
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        EBLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+    NSDictionary *options = @{ NSSQLitePragmasOption: @{ @"synchronous": @"OFF",
+                                                         @"journal_mode": @"TRUNCATE"}};
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                   configuration:nil
+                                                             URL:storeURL
+                                                         options: options
+                                                           error:&error]) {
+        // TODO: Migrations
+        EBLog(@"Deleting incompatible Core Data store: %@", storeURL.absoluteString);
+        NSFileManager *fm = [NSFileManager new];
+        [fm removeItemAtURL: storeURL error: &error];
+        error = nil;
+        if (error) {
+            EBLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                       configuration:nil
+                                                                 URL:storeURL
+                                                             options:options
+                                                               error:&error]) {
+            EBLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
     }
     
     return _persistentStoreCoordinator;

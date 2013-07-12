@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * detail;
 @property (nonatomic, retain) NSString * htmlDescription;
 @property (nonatomic, retain) NSString * link;
-@property (nonatomic, retain) NSString * plainDetail;
+@property (nonatomic, strong) NSString * plainDetail;
 
 + (instancetype) objectWithUID: (NSUInteger) uid inContext: (NSManagedObjectContext*) context;
 + (instancetype) objectWithUID: (NSUInteger) uid inContext: (NSManagedObjectContext*) context createIfNotFound: (BOOL) create;

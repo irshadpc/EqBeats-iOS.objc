@@ -8,6 +8,6 @@
 
 #import "EBTracksViewController.h"
 
-@interface EBSearchViewController : EBTracksViewController
+@interface EBSearchViewController : EBTracksViewController <UISearchDisplayDelegate>
 
 @end

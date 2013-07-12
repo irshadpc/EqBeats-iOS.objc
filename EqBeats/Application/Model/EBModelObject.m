@@ -69,7 +69,7 @@ NS_INLINE void setupMap()
 @dynamic detail;
 @dynamic htmlDescription;
 @dynamic link;
-@dynamic plainDetail;
+@synthesize plainDetail = _plainDetail;
 
 + (NSValueTransformer*) mappingKeyTransformer
 {
@@ -114,6 +114,15 @@ NS_INLINE void setupMap()
     EBModelObject *object = [[self alloc] initWithEntity: entityDesc insertIntoManagedObjectContext: context];
     object.uid = uid;
     return object;
+}
+
+- (void) didChangeValueForKey:(NSString *)key
+{
+    if ([key isEqualToString: @"detail"]) {
+        NSRegularExpression *expr = [NSRegularExpression regularExpressionWithPattern: @"\\[([^\\]=]*)[^\\]]*\\](.*)\\[\\/\\1\\]" options:NSRegularExpressionCaseInsensitive error: nil];
+        self.plainDetail = [expr stringByReplacingMatchesInString: self.detail options: 0 range: NSMakeRange(0, self.detail.length) withTemplate: @"$2"];
+    }
+    [super didChangeValueForKey: key];
 }
 
 @end
