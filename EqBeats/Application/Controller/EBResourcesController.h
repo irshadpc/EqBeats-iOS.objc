@@ -10,10 +10,10 @@
 #import "EBTrack.h"
 
 extern NSUInteger EBDeviceSystemMajorVersion();
-
+@class EBImageView;
 @interface EBResourcesController : NSObject
 
-+ (void) setImageForImageView: (UIImageView*) imageView
++ (void) setImageForImageView: (EBImageView*) imageView
                         track: (EBTrack*) track
                       quality: (EBTrackArtQuality) quality;
 

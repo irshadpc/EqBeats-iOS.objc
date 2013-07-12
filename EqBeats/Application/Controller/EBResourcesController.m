@@ -8,6 +8,7 @@
 
 #import "EBResourcesController.h"
 #import "UIImageView+WebCache.h"
+#import "EBImageView.h"
 
 NSUInteger EBDeviceSystemMajorVersion() {
     static NSUInteger _deviceSystemMajorVersion = -1;
@@ -20,21 +21,19 @@ NSUInteger EBDeviceSystemMajorVersion() {
 
 @implementation EBResourcesController
 
-+ (void) setImageForImageView: (UIImageView*) imageView
++ (void) setImageForImageView: (EBImageView*) imageView
                         track: (EBTrack*) track
                       quality: (EBTrackArtQuality) quality
 {
     if ([track artURLAtQuality: quality] == nil) {
         [imageView setImage: [self noArtworkImageForQuality: quality]];
     } else {
-        __weak UIImageView *weakImageView = imageView;
-        [imageView setImageWithURL: [track artURLAtQuality: quality]
-                  placeholderImage: [self placeholderImageForQuality: quality]
-                           options: SDWebImageCacheMemoryOnly
-                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                             if (error) {
+        __weak EBImageView *weakImageView = imageView;
+        [imageView loadImageFromURL: [track artURLAtQuality: quality]
+                   placeHolderImage: [self placeholderImageForQuality: quality]
+                         completion:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                             if (image == nil || error != nil) {
                                  weakImageView.image = [self noArtworkImageForQuality: quality];
-                                 [weakImageView setNeedsLayout];
                              }
                          }];
     }

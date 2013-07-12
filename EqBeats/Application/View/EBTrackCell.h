@@ -8,8 +8,9 @@
 
 #import "SDNibLoadedTableViewCell.h"
 
+@class EBImageView;
 @interface EBTrackCell : SDNibLoadedTableViewCell
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *detailTitleLabel;
-@property (nonatomic, strong) IBOutlet UIImageView *artworkView;
+@property (nonatomic, strong) IBOutlet EBImageView *artworkView;
 @end

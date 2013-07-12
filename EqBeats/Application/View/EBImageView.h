@@ -13,4 +13,6 @@
 
 @interface EBImageView : UIImageView <UIViewDesiredHeight, UIViewDesiredWidth>
 
+- (void) loadImageFromURL: (NSURL*) url placeHolderImage: (UIImage*) placeholder completion: (void (^)(UIImage *image, NSError *error, SDImageCacheType cacheType)) completion;
+
 @end
