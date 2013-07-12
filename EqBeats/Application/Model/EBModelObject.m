@@ -26,7 +26,8 @@ static NSDictionary *inverseMap = nil;
 NS_INLINE void setupMap()
 {
     map = @{ @"id": @"uid",
-             @"html_description": @"htmlDescription" };
+             @"html_description": @"htmlDescription",
+             @"description": @"detail" };
     NSMutableDictionary *d = [[NSMutableDictionary alloc] initWithCapacity: map.count];
     for (NSString *key in map) {
         NSString *v = map[key];

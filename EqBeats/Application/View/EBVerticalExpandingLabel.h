@@ -10,5 +10,5 @@
 #import "UIViewDesiredHeight.h"
 
 @interface EBVerticalExpandingLabel : SDNibLoadedLabel <UIViewDesiredHeight>
-
+@property (nonatomic, assign) CGFloat maximumHeight;
 @end

@@ -8,6 +8,7 @@
 
 #import "EBTabBarView.h"
 #import "MarqueeLabel.h"
+#import "EBImageView.h"
 
 @implementation EBTabBarView
 

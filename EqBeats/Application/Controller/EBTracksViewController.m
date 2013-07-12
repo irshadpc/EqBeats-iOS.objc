@@ -78,6 +78,11 @@
     return [self trackCellForIndexPath: indexPath];
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
+
 - (EBTrackCell*) trackCellForIndexPath:(NSIndexPath *)indexPath
 {
     EBTrackCell *cell = [self.tableView dequeueReusableCellWithIdentifier: @"EBTrackCell"];

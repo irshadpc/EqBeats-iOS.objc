@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class MarqueeLabel;
+@class MarqueeLabel, EBImageView;
 
 @interface EBTabBarView : UIView
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
@@ -20,7 +20,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *radioButton;
 @property (nonatomic, strong) IBOutlet UILabel *artistLabel;
 @property (nonatomic, strong) IBOutlet MarqueeLabel *songLabel;
-@property (nonatomic, strong) IBOutlet UIImageView *songArtView;
+@property (nonatomic, strong) IBOutlet EBImageView *songArtView;
 @property (nonatomic, strong) IBOutlet UIView *shadowView;
 
 @property (nonatomic, copy) NSString *songText;

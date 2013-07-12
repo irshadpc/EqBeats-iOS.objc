@@ -12,6 +12,7 @@
 #import "EBAPI.h"
 #import "EBUser.h"
 #import "EBTrack.h"
+#import "SDAnchorView.h"
 
 @interface EBSearchViewController ()
 @property (nonatomic, copy) NSArray *searchResults;
@@ -158,6 +159,7 @@
         [userCell.avatarImageView loadImageFromURL: [NSURL URLWithString: artist.avatar]
                                   placeHolderImage: nil
                                         completion: nil];
+        [userCell.layoutView setNeedsLayout];
     }
 }
 

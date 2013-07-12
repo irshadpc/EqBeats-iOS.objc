@@ -9,6 +9,7 @@
 #import "EBMainTabBarController.h"
 #import "EBResourcesController.h"
 #import "EBTabBarView.h"
+#import "EBImageView.h"
 #import "UIView+LoadFromNib.h"
 #import "EBAudioController.h"
 #import "EBModel.h"
@@ -43,6 +44,8 @@
 {
     [super viewWillAppear: animated];
     [self.tabBar bringSubviewToFront: self.customTabBarView];
+    [self updateButtonSelectionState];
+    [self updatePlayingItem];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(updatePlayingItem) name: EBAudioControllerCurrentItemChangedNotification object: nil];
 }
 
@@ -60,6 +63,15 @@
                                               track: currentTrack
                                             quality: EBTrackArtQualityThumb];
     }
+}
+
+- (void) updateButtonSelectionState
+{
+    for (UIButton *button in self.buttons) {
+        [button setSelected: NO];
+    }
+    [self.buttons[self.selectedIndex] setSelected: YES];
+    [self.tabBar bringSubviewToFront: self.customTabBarView];
 }
 
 #pragma mark - Button Actions
@@ -81,17 +93,23 @@
 
 - (IBAction) toTabBarControlsAction: (id) sender
 {
-    
+    [self.customTabBarView.scrollView setContentOffset: CGPointMake(self.customTabBarView.scrollView.frame.size.width, 0) animated: YES];
 }
 
 - (IBAction) toPlaybackControlsAction: (id) sender
 {
-    
+    [self.customTabBarView.scrollView setContentOffset: CGPointZero animated: YES];
 }
 
 - (IBAction) tabButtonAction: (id) sender
 {
-    
+    UIButton *button = sender;
+    if (button.tag < 4) {
+        [self setSelectedIndex: button.tag];
+    } else {
+        [self setSelectedViewController: self.moreNavigationController];
+    }
+    [self updateButtonSelectionState];
 }
 
 @end

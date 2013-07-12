@@ -15,9 +15,15 @@
     if (self.text == nil) {
         return 0;
     } else {
-        return @([self.text sizeWithFont: self.font
-                       constrainedToSize: CGSizeMake(self.frame.size.width, CGFLOAT_MAX)
-                           lineBreakMode: self.lineBreakMode].height);
+        
+        CGFloat height = [self.text sizeWithFont: self.font
+                               constrainedToSize: CGSizeMake(self.frame.size.width, CGFLOAT_MAX)
+                                   lineBreakMode: self.lineBreakMode].height;
+        if (self.maximumHeight > 0 && height > self.maximumHeight) {
+            return @(self.maximumHeight);
+        } else {
+            return @(height);
+        }
     }
 }
 
