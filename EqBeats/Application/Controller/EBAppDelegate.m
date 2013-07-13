@@ -11,9 +11,22 @@
 
 @implementation EBAppDelegate
 
++ (EBAppDelegate*) appDelegate
+{
+    return [[UIApplication sharedApplication] delegate];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [EBModel sharedModel];
+    
+    // Setup main window.
+    self.window = [[EBWindow alloc] initWithFrame: UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"MainStoryboard" bundle: nil];
+    self.navigationController = [storyboard instantiateInitialViewController];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

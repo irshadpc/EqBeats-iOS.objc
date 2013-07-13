@@ -64,7 +64,7 @@ NS_INLINE void CommonInit(EBPlaybackScrubControl *self)
 - (UIColor*) timeNormalColor
 {
     if (_timeNormalColor == nil) {
-        _timeNormalColor = [UIColor colorWithWhite: 0.2 alpha: 1];
+        _timeNormalColor = [UIColor colorWithWhite: 0.4 alpha: 1];
     }
     return _timeNormalColor;
 }
@@ -115,7 +115,6 @@ NS_INLINE void CommonInit(EBPlaybackScrubControl *self)
         elapsedPercentage = self.elapsed / self.duration;
     }
     CGRect trackRect = CGRectMake(0, 0, round(rect.size.width * elapsedPercentage), rect.size.height);
-//    CGRect notTrackRect = CGRectMake(trackRect.size.width, 0, rect.size.width - trackRect.size.width, rect.size.height);
     CGRect elapsedTextRect = CGRectMake(8, roundf((rect.size.height / 2.0) - (textFont.lineHeight / 2.0)), 100, textFont.lineHeight);
     CGRect durationTextRect = CGRectMake(rect.size.width - 108, roundf((rect.size.height / 2.0) - (textFont.lineHeight / 2.0)), 100, textFont.lineHeight);
     NSInteger durationMinutes = floorf(self.duration / 60.0);
@@ -145,7 +144,7 @@ NS_INLINE void CommonInit(EBPlaybackScrubControl *self)
         [elapsedText drawInRect: elapsedTextRect withFont: textFont lineBreakMode: NSLineBreakByTruncatingTail alignment: NSTextAlignmentLeft];
         CGContextRestoreGState(ctx);
     }
-    if (self.showsDuration) {
+    if (self.showsDuration && self.duration > 0) {
         [self.timeNormalColor setFill];
         [durationText drawInRect: durationTextRect withFont: textFont lineBreakMode: NSLineBreakByTruncatingTail alignment: NSTextAlignmentRight];
         CGContextSaveGState(ctx);

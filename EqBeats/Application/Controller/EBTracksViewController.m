@@ -7,6 +7,7 @@
 //
 
 #import "EBTracksViewController.h"
+#import "EBAppDelegate.h"
 #import "EBUser.h"
 
 @interface EBTracksViewController () {
@@ -81,6 +82,18 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 0;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *tracks = [self tracksForQueueAtIndexPath: indexPath];
+    EBTrack *track = [self trackForIndexPath: indexPath];
+    NSInteger index = [tracks indexOfObject: track];
+    NSAssert(index != NSNotFound, @"track: %@ not found in result from tracksForQueueAtIndexPath!", track);
+    [EBModel.sharedModel.audioController setPlaybackQueue: tracks queueIndex: index];
+    UIViewController *player = [self.storyboard instantiateViewControllerWithIdentifier: @"NowPlaying"];
+    [EBAppDelegate.appDelegate.navigationController pushViewController: player animated: YES];
+    [EBModel.sharedModel.audioController play];
 }
 
 - (EBTrackCell*) trackCellForIndexPath:(NSIndexPath *)indexPath

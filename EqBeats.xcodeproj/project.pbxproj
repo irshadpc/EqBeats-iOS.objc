@@ -42,6 +42,7 @@
 		8B8081EC1787DF35008C1BA9 /* EBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081EB1787DF35008C1BA9 /* EBModel.m */; };
 		8B8081EF1787F07F008C1BA9 /* EBDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081EE1787F07F008C1BA9 /* EBDownload.m */; };
 		8B8081F21787F0E0008C1BA9 /* EBTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081F11787F0E0008C1BA9 /* EBTrack.m */; };
+		8BD05FE81791A40200651AB9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD05FE71791A40200651AB9 /* MediaPlayer.framework */; };
 		8BD45CC3178ED56A00723431 /* EBMappableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD45CC2178ED56A00723431 /* EBMappableObject.m */; };
 		8BD45CC5179021A000723431 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD45CC4179021A000723431 /* SystemConfiguration.framework */; };
 		8BD45CC7179021A600723431 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD45CC6179021A600723431 /* MobileCoreServices.framework */; };
@@ -144,6 +145,7 @@
 		8B8081F01787F0E0008C1BA9 /* EBTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTrack.h; sourceTree = "<group>"; };
 		8B8081F11787F0E0008C1BA9 /* EBTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBTrack.m; sourceTree = "<group>"; };
 		8B8081F3178801CE008C1BA9 /* EBLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBLog.h; sourceTree = "<group>"; };
+		8BD05FE71791A40200651AB9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8BD45CC1178ED56A00723431 /* EBMappableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBMappableObject.h; sourceTree = "<group>"; };
 		8BD45CC2178ED56A00723431 /* EBMappableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBMappableObject.m; sourceTree = "<group>"; };
 		8BD45CC4179021A000723431 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -191,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD05FE81791A40200651AB9 /* MediaPlayer.framework in Frameworks */,
 				8BD45CC7179021A600723431 /* MobileCoreServices.framework in Frameworks */,
 				8BD45CC5179021A000723431 /* SystemConfiguration.framework in Frameworks */,
 				8B8081D01782D5CF008C1BA9 /* AVFoundation.framework in Frameworks */,
@@ -270,6 +273,7 @@
 		8BDB76BC17819B6700DC380B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BD05FE71791A40200651AB9 /* MediaPlayer.framework */,
 				8BD45CC6179021A600723431 /* MobileCoreServices.framework */,
 				8BD45CC4179021A000723431 /* SystemConfiguration.framework */,
 				8B8081CF1782D5CF008C1BA9 /* AVFoundation.framework */,

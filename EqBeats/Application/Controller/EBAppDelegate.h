@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EBWindow.h"
 
 @interface EBAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) EBWindow *window;
+@property (strong, nonatomic) UINavigationController *navigationController;
+
++ (EBAppDelegate*) appDelegate;
 
 @end

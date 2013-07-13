@@ -11,6 +11,7 @@
 
 NSString* const EBAudioControllerPlaybackHeadMovedNotification = @"EBAudioControllerPlaybackHeadMovedNotification";
 NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioControllerCurrentItemChangedNotification";
+NSString* const EBAudioControllerStatusChangedNotification = @"EBAudioControllerStatusChangedNotification";
 
 
 @interface EBAudioController () {
@@ -41,7 +42,7 @@ NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioContr
     self.currentPlayer = [[AVQueuePlayer alloc] initWithItems: playerItems];
 }
 
-- (void) setPlaybackQueue:(NSArray *)playbackQueue
+- (void) setPlaybackQueue:(NSArray *)playbackQueue queueIndex:(NSInteger)index
 {
     _playbackQueue = playbackQueue.copy;
     NSMutableArray *items = [NSMutableArray new];
@@ -56,7 +57,12 @@ NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioContr
         [item removeObserver: self forKeyPath: @"playbackLikelyToKeepUp"];
     }
     self.queueItems = items;
-    [self setQueueIndex: 0];
+    [self setQueueIndex: index];
+}
+
+- (void) setPlaybackQueue:(NSArray *)playbackQueue
+{
+    [self setPlaybackQueue: playbackQueue queueIndex: 0];
 }
 
 - (void) setCurrentPlayer:(AVQueuePlayer *)currentPlayer
@@ -110,6 +116,7 @@ NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioContr
 - (void) playbackStateChanged
 {
     EBLog(@"Playback state changed: %@ newRate: %.2f", self.currentPlayer, self.currentPlayer.rate);
+    [[NSNotificationCenter defaultCenter] postNotificationName: EBAudioControllerStatusChangedNotification object: self];
 }
 
 - (void) itemStatusChanged: (AVPlayerItem*) changedItem
@@ -117,6 +124,7 @@ NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioContr
     if (changedItem == self.currentItem && changedItem.status == AVPlayerStatusFailed) {
         [self skipForwards];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName: EBAudioControllerStatusChangedNotification object: self];
 }
 
 - (void) itemPlaybackLikelyToKeepUpChanged: (AVPlayerItem*) changedItem
@@ -125,6 +133,7 @@ NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioContr
     if (changedItem == self.currentItem && _autoplay && changedItem.playbackLikelyToKeepUp) {
         [self.currentPlayer play];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName: EBAudioControllerStatusChangedNotification object: self];
 }
 
 #pragma mark - Public Playback Controls

@@ -10,6 +10,7 @@
 
 extern NSString* const EBAudioControllerPlaybackHeadMovedNotification;
 extern NSString* const EBAudioControllerCurrentItemChangedNotification;
+extern NSString* const EBAudioControllerStatusChangedNotification;
 
 @class EBTrack;
 
@@ -23,6 +24,8 @@ extern NSString* const EBAudioControllerCurrentItemChangedNotification;
 
 - (NSNumber*) elapsedTime;
 - (NSNumber*) duration;
+
+- (void) setPlaybackQueue:(NSArray *)playbackQueue queueIndex: (NSInteger) index;
 
 - (void) togglePlayPause;
 - (void) stop;
