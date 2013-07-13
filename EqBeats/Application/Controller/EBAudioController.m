@@ -13,7 +13,9 @@ NSString* const EBAudioControllerPlaybackHeadMovedNotification = @"EBAudioContro
 NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioControllerCurrentItemChangedNotification";
 
 
-@interface EBAudioController ()
+@interface EBAudioController () {
+    AVPlayerItem *_lastNotifiedItem;
+}
 @property (nonatomic, strong) AVQueuePlayer *currentPlayer;
 @property (nonatomic, copy) NSArray *queueItems;
 @property (nonatomic, strong) id timeObserver;
@@ -46,10 +48,12 @@ NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioContr
     for (EBTrack *track in playbackQueue) {
         AVPlayerItem *item = [self playerItemForTrack: track];
         [item addObserver: self forKeyPath: @"status" options: NSKeyValueObservingOptionNew context: NULL];
+        [item addObserver: self forKeyPath: @"playbackLikelyToKeepUp" options: NSKeyValueObservingOptionNew context: NULL];
         [items addObject: item];
     }
     for (AVPlayerItem *item in self.queueItems) {
         [item removeObserver: self forKeyPath: @"status"];
+        [item removeObserver: self forKeyPath: @"playbackLikelyToKeepUp"];
     }
     self.queueItems = items;
     [self setQueueIndex: 0];
@@ -68,7 +72,7 @@ NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioContr
     _currentPlayer = currentPlayer;
     
     if (_currentPlayer != nil) {
-        [_currentPlayer addObserver: self forKeyPath: @"currentItem" options: NSKeyValueObservingOptionNew context: NULL];
+        [_currentPlayer addObserver: self forKeyPath: @"currentItem" options: NSKeyValueObservingOptionInitial| NSKeyValueObservingOptionNew context: NULL];
         [_currentPlayer addObserver: self forKeyPath: @"rate" options: NSKeyValueObservingOptionNew context: NULL];
         __weak id s = self;
         self.timeObserver = [_currentPlayer addPeriodicTimeObserverForInterval: CMTimeMakeWithSeconds(0.1, NSEC_PER_SEC) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
@@ -90,22 +94,37 @@ NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioContr
         [self playbackStateChanged];
     } else if ([keyPath isEqualToString: @"status"]) {
         [self itemStatusChanged: object];
+    } else if ([keyPath isEqualToString: @"playbackLikelyToKeepUp"]) {
+        [self itemPlaybackLikelyToKeepUpChanged: object];
     }
 }
 
 - (void) currentItemChanged
 {
-    
+    if (self.currentItem != _lastNotifiedItem) {
+        [[NSNotificationCenter defaultCenter] postNotificationName: EBAudioControllerCurrentItemChangedNotification object: self];
+        _lastNotifiedItem = self.currentItem;
+    }
 }
 
 - (void) playbackStateChanged
 {
-    
+    EBLog(@"Playback state changed: %@ newRate: %.2f", self.currentPlayer, self.currentPlayer.rate);
 }
 
 - (void) itemStatusChanged: (AVPlayerItem*) changedItem
 {
-    
+    if (changedItem == self.currentItem && changedItem.status == AVPlayerStatusFailed) {
+        [self skipForwards];
+    }
+}
+
+- (void) itemPlaybackLikelyToKeepUpChanged: (AVPlayerItem*) changedItem
+{
+    EBLog(@"Item: %@ likelyToKeepUp: %@", changedItem, (changedItem.playbackLikelyToKeepUp?@"YES":@"NO"));
+    if (changedItem == self.currentItem && _autoplay && changedItem.playbackLikelyToKeepUp) {
+        [self.currentPlayer play];
+    }
 }
 
 #pragma mark - Public Playback Controls

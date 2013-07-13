@@ -255,68 +255,76 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" id="6NT-PN-hDb">
+                            <view contentMode="scaleToFill" id="DY1-jg-0WV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="P3c-AE-Jyl">
-                                        <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" title=" Back" id="iBJ-Nh-aAi">
-                                            <connections>
-                                                <action selector="backButtonAction" destination="kKd-8I-kNo" id="nGa-OL-oJO"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <view key="titleView" opaque="NO" contentMode="scaleToFill" id="m7w-e3-7Mh">
-                                            <rect key="frame" x="70" y="6" width="180" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Song Artist" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OMK-L5-0mW">
-                                                    <rect key="frame" x="0.0" y="2" width="180" height="13"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                    <color key="textColor" red="0.8957154832480585" green="0.79345904206013429" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Song Title" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9sl-q1-ccf" customClass="MarqueeLabel">
-                                                    <rect key="frame" x="0.0" y="17" width="180" height="13"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                    <color key="textColor" red="0.91770717327867701" green="0.79223275204982402" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="rate">
-                                                            <integer key="value" value="50"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
-                                                            <integer key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="marqueeType">
-                                                            <integer key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="continuousMarqueeSeparator" value="        "/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="PlayerNavigationBarBackground" id="LSi-iv-P0d">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bvF-ha-ODU">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="PlayerNavigationBackIcon" backgroundImage="PlayerNavigationLeftButtonNormal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="PlayerNavigationLeftButtonHighlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="71e-zb-rsl">
+                                        <rect key="frame" x="260" y="0.0" width="60" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="PlayerNavigationQueueIcon" backgroundImage="PlayerNavigationRightButtonNormal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="PlayerNavigationRightButtonHighlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lcc-Qq-keK">
+                                        <rect key="frame" x="68" y="7" width="184" height="13"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                        <color key="textColor" red="0.91764705882352937" green="0.792156862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mIE-dT-LVd" customClass="MarqueeLabel">
+                                        <rect key="frame" x="60" y="22" width="200" height="13"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                        <color key="textColor" red="0.91764705879999997" green="0.79215686269999996" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rate">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marqueeType">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="continuousMarqueeSeparator" value="        "/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
-                        <outlet property="artist_label" destination="OMK-L5-0mW" id="yUn-dr-00T"/>
                         <outlet property="artwork_view" destination="Lx5-IY-N99" id="B1x-Yg-Rsl"/>
-                        <outlet property="back_button_item" destination="iBJ-Nh-aAi" id="5RI-eq-aGh"/>
                         <outlet property="elapsed_label" destination="hv5-fd-Afe" id="98Y-Gs-Dnf"/>
                         <outlet property="fake_volume_slider" destination="3jD-5Z-EKe" id="oDB-vR-neU"/>
                         <outlet property="forward_button" destination="KVt-86-viv" id="RKU-rl-w0M"/>
-                        <outlet property="name_label" destination="9sl-q1-ccf" id="pc9-c5-NW9"/>
-                        <outlet property="navigationBar" destination="6NT-PN-hDb" id="7yY-7x-SAg"/>
                         <outlet property="play_pause_button" destination="guq-Ox-92F" id="YUp-e2-60D"/>
                         <outlet property="queue_length_label" destination="mZ3-xh-hMp" id="PYC-H7-YiT"/>
                         <outlet property="remaining_label" destination="R7Z-GP-ZVF" id="2D5-vc-y3d"/>
@@ -980,6 +988,13 @@
         <image name="NowPlayingBottomBackground" width="320" height="96"/>
         <image name="NowPlayingTopBackground" width="1" height="76"/>
         <image name="Play" width="30" height="27"/>
+        <image name="PlayerNavigationBackIcon" width="36" height="21"/>
+        <image name="PlayerNavigationBarBackground" width="320" height="48"/>
+        <image name="PlayerNavigationLeftButtonHighlighted" width="59" height="44"/>
+        <image name="PlayerNavigationLeftButtonNormal" width="59" height="44"/>
+        <image name="PlayerNavigationQueueIcon" width="25" height="25"/>
+        <image name="PlayerNavigationRightButtonHighlighted" width="59" height="44"/>
+        <image name="PlayerNavigationRightButtonNormal" width="59" height="44"/>
         <image name="PlaylistIcon.png" width="24" height="24"/>
         <image name="PreviousTrack" width="31" height="23"/>
         <image name="RadioIcon.png" width="26" height="24"/>
