@@ -10,6 +10,8 @@
 		70C7834F430747419A702B54 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D55148FE9BC4CE18B300958 /* libPods.a */; };
 		8B51D91B178EC0E400264F1D /* NSString+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D918178EC0E400264F1D /* NSString+Color.m */; };
 		8B51D91C178EC0E400264F1D /* UIColor+HexHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D91A178EC0E400264F1D /* UIColor+HexHTML.m */; };
+		8B80776A17916F9700399043 /* EBPlaybackScrubControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B80776917916F9700399043 /* EBPlaybackScrubControl.m */; };
+		8B80776D179186D300399043 /* EBDebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B80776C179186D300399043 /* EBDebugViewController.m */; };
 		8B80818E1782CA02008C1BA9 /* EBPlaylistOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B80818D1782CA02008C1BA9 /* EBPlaylistOptionsCell.m */; };
 		8B8081911782CA0F008C1BA9 /* EBRadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081901782CA0F008C1BA9 /* EBRadioCell.m */; };
 		8B8081941782CA4A008C1BA9 /* EBRoundProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081931782CA4A008C1BA9 /* EBRoundProgressView.m */; };
@@ -84,6 +86,10 @@
 		8B51D919178EC0E400264F1D /* UIColor+HexHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexHTML.h"; sourceTree = "<group>"; };
 		8B51D91A178EC0E400264F1D /* UIColor+HexHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexHTML.m"; sourceTree = "<group>"; };
 		8B51D91D178EC46100264F1D /* EqBeatsCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqBeatsCategories.h; sourceTree = "<group>"; };
+		8B80776817916F9700399043 /* EBPlaybackScrubControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPlaybackScrubControl.h; sourceTree = "<group>"; };
+		8B80776917916F9700399043 /* EBPlaybackScrubControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPlaybackScrubControl.m; sourceTree = "<group>"; };
+		8B80776B179186D300399043 /* EBDebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDebugViewController.h; sourceTree = "<group>"; };
+		8B80776C179186D300399043 /* EBDebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDebugViewController.m; sourceTree = "<group>"; };
 		8B80818C1782CA02008C1BA9 /* EBPlaylistOptionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPlaylistOptionsCell.h; sourceTree = "<group>"; };
 		8B80818D1782CA02008C1BA9 /* EBPlaylistOptionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPlaylistOptionsCell.m; sourceTree = "<group>"; };
 		8B80818F1782CA0F008C1BA9 /* EBRadioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRadioCell.h; sourceTree = "<group>"; };
@@ -336,6 +342,8 @@
 				8BDB76F017819D9100DC380B /* EBAppDelegate.m */,
 				8BDB77031781A18900DC380B /* EBAudioController.h */,
 				8BDB77041781A18900DC380B /* EBAudioController.m */,
+				8B80776B179186D300399043 /* EBDebugViewController.h */,
+				8B80776C179186D300399043 /* EBDebugViewController.m */,
 				8B8081A31782D1C6008C1BA9 /* EBFeaturedViewController.h */,
 				8B8081A41782D1C6008C1BA9 /* EBFeaturedViewController.m */,
 				8B8081A61782D1D8008C1BA9 /* EBLaunchViewController.h */,
@@ -396,6 +404,8 @@
 				8BDB77191781A21400DC380B /* EBWindow.m */,
 				8BDB771B1781A22500DC380B /* EBLaunchBackgroundView.h */,
 				8BDB771C1781A22500DC380B /* EBLaunchBackgroundView.m */,
+				8B80776817916F9700399043 /* EBPlaybackScrubControl.h */,
+				8B80776917916F9700399043 /* EBPlaybackScrubControl.m */,
 				8B80818C1782CA02008C1BA9 /* EBPlaylistOptionsCell.h */,
 				8B80818D1782CA02008C1BA9 /* EBPlaylistOptionsCell.m */,
 				8B80818F1782CA0F008C1BA9 /* EBRadioCell.h */,
@@ -582,6 +592,7 @@
 				8B8081B11782D21D008C1BA9 /* EBPlayerViewController.m in Sources */,
 				8BDB77141781A1EC00DC380B /* EBUser.m in Sources */,
 				8BDB771D1781A22500DC380B /* EBLaunchBackgroundView.m in Sources */,
+				8B80776A17916F9700399043 /* EBPlaybackScrubControl.m in Sources */,
 				8B8081C01782D27C008C1BA9 /* EBTracksViewController.m in Sources */,
 				8BD45CC3178ED56A00723431 /* EBMappableObject.m in Sources */,
 				8B8081B41782D230008C1BA9 /* EBPlaylistViewController.m in Sources */,
@@ -599,6 +610,7 @@
 				8B51D91B178EC0E400264F1D /* NSString+Color.m in Sources */,
 				8B51D91C178EC0E400264F1D /* UIColor+HexHTML.m in Sources */,
 				8B8081BD1782D267008C1BA9 /* EBSearchViewController.m in Sources */,
+				8B80776D179186D300399043 /* EBDebugViewController.m in Sources */,
 				8BDB77171781A20B00DC380B /* EBTabBarView.m in Sources */,
 				8B8081A81782D1D8008C1BA9 /* EBLaunchViewController.m in Sources */,
 				8BDB770217819F5700DC380B /* main.m in Sources */,
