@@ -37,7 +37,13 @@
     self.customTabBarView = [EBTabBarView loadFromNibName: nil bundle: nil filesOwner: self];
     [self.tabBar addSubview: self.customTabBarView];
     [self.tabBar bringSubviewToFront: self.customTabBarView];
-    [self.moreNavigationController.navigationBar setBackgroundImage: [UIImage imageNamed: @"NavigationBarBackground.png"] forBarMetrics: UIBarMetricsDefault];
+    if (EBDeviceSystemMajorVersion() < 7) {
+        [self.moreNavigationController.navigationBar setBackgroundImage: [UIImage imageNamed: @"NavigationBarBackground.png"] forBarMetrics: UIBarMetricsDefault];
+    } else {
+        [self.moreNavigationController.navigationBar setBarTintColor: @"#8239AB".color];
+        [self.moreNavigationController.navigationBar setTitleTextAttributes: @{UITextAttributeTextColor: [UIColor whiteColor]}];
+        [self.moreNavigationController.navigationBar setBackIndicatorImage: [UIImage imageNamed: @"BackIndicatorImage"]];
+    }
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -70,7 +76,11 @@
     for (UIButton *button in self.buttons) {
         [button setSelected: NO];
     }
-    [self.buttons[self.selectedIndex] setSelected: YES];
+    if (self.selectedViewController == self.moreNavigationController) {
+        self.customTabBarView.moreButton.selected = YES;
+    } else {
+        [self.buttons[self.selectedIndex] setSelected: YES];
+    }
     [self.tabBar bringSubviewToFront: self.customTabBarView];
 }
 
@@ -93,12 +103,12 @@
 
 - (IBAction) toTabBarControlsAction: (id) sender
 {
-    [self.customTabBarView.scrollView setContentOffset: CGPointMake(self.customTabBarView.scrollView.frame.size.width, 0) animated: YES];
+    [self.customTabBarView.scrollView setContentOffset: CGPointZero animated: YES];
 }
 
 - (IBAction) toPlaybackControlsAction: (id) sender
 {
-    [self.customTabBarView.scrollView setContentOffset: CGPointZero animated: YES];
+    [self.customTabBarView.scrollView setContentOffset: CGPointMake(self.customTabBarView.scrollView.frame.size.width, 0) animated: YES];
 }
 
 - (IBAction) tabButtonAction: (id) sender
@@ -110,6 +120,13 @@
         [self setSelectedViewController: self.moreNavigationController];
     }
     [self updateButtonSelectionState];
+}
+
+- (void) navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if (navigationController == self.moreNavigationController) {
+        navigationController.navigationBar.topItem.rightBarButtonItem = nil;
+    }
 }
 
 @end

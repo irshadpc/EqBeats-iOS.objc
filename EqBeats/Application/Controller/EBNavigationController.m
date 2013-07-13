@@ -23,6 +23,8 @@
                                  forBarMetrics: UIBarMetricsDefault];
     } else {
         [self.navigationBar setBarTintColor: @"#8239AB".color];
+        [self.navigationBar setTitleTextAttributes: @{UITextAttributeTextColor: [UIColor whiteColor]}];
+        [self.navigationBar setBackIndicatorImage: [UIImage imageNamed: @"BackIndicatorImage"]];
     }
 }
 
