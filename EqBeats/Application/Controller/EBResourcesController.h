@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EBTrack.h"
+#import "SDWebImageDownloader.h"
 
 extern NSUInteger EBDeviceSystemMajorVersion();
 @class EBImageView;
@@ -16,6 +17,10 @@ extern NSUInteger EBDeviceSystemMajorVersion();
 + (void) setImageForImageView: (EBImageView*) imageView
                         track: (EBTrack*) track
                       quality: (EBTrackArtQuality) quality;
++ (void) setImageForImageView: (EBImageView*) imageView
+                        track: (EBTrack*) track
+                      quality: (EBTrackArtQuality) quality
+                     progress: (SDWebImageDownloaderProgressBlock) progress;
 
 + (UIImage*) placeholderImageForQuality: (EBTrackArtQuality) quality;
 + (UIImage*) noArtworkImageForQuality: (EBTrackArtQuality) quality;

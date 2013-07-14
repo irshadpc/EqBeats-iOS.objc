@@ -141,9 +141,20 @@
                                 <rect key="frame" x="0.0" y="140" width="320" height="332"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Lx5-IY-N99" customClass="EBImageView">
+                                    <view hidden="YES" contentMode="scaleToFill" id="cWE-kJ-b8v" customClass="EBVerticalProgressView">
+                                        <rect key="frame" x="58" y="15" width="204" height="295"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.52953749895095825" green="0.52952158451080322" blue="0.52953058481216431" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                                <color key="value" red="0.0" green="0.46666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Lx5-IY-N99" customClass="EBImageView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -309,7 +320,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bvF-ha-ODU">
-                                        <rect key="frame" x="0.0" y="-1" width="60" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="PlayerNavigationBackIcon" backgroundImage="PlayerNavigationLeftButtonNormal">
@@ -324,7 +335,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="71e-zb-rsl">
-                                        <rect key="frame" x="260" y="-1" width="60" height="44"/>
+                                        <rect key="frame" x="260" y="0.0" width="60" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="PlayerNavigationQueueIcon" backgroundImage="PlayerNavigationRightButtonNormal">
@@ -373,6 +384,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="artistLabel" destination="Lcc-Qq-keK" id="Jc9-KE-6HA"/>
+                        <outlet property="artworkProgressView" destination="cWE-kJ-b8v" id="hUM-cg-HiG"/>
                         <outlet property="artworkView" destination="Lx5-IY-N99" id="rCi-aZ-Unp"/>
                         <outlet property="fakeVolumeView" destination="3jD-5Z-EKe" id="aD2-4R-mH7"/>
                         <outlet property="nextButton" destination="KVt-86-viv" id="hIi-N7-ubD"/>

@@ -25,12 +25,21 @@ NSUInteger EBDeviceSystemMajorVersion() {
                         track: (EBTrack*) track
                       quality: (EBTrackArtQuality) quality
 {
+    [self setImageForImageView: imageView track: track quality: quality progress: nil];
+}
+
++ (void) setImageForImageView: (EBImageView*) imageView
+                        track: (EBTrack*) track
+                      quality: (EBTrackArtQuality) quality
+                     progress: (SDWebImageDownloaderProgressBlock) progress
+{
     if ([track artURLAtQuality: quality] == nil) {
         [imageView setImage: [self noArtworkImageForQuality: quality]];
     } else {
         __weak EBImageView *weakImageView = imageView;
         [imageView loadImageFromURL: [track artURLAtQuality: quality]
                    placeHolderImage: [self placeholderImageForQuality: quality]
+                           progress: progress
                          completion:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                              if (image == nil || error != nil) {
                                  weakImageView.image = [self noArtworkImageForQuality: quality];

@@ -16,6 +16,7 @@
 #import "EBPlaybackScrubControl.h"
 #import "EBImageView.h"
 #import "MarqueeLabel.h"
+#import "EBVerticalProgressView.h"
 
 @interface EBPlayerViewController ()
 @property (strong, nonatomic) IBOutlet EBPlaybackScrubControl *scrubControl;
@@ -27,6 +28,7 @@
 @property (strong, nonatomic) IBOutlet EBImageView *artworkView;
 @property (strong, nonatomic) IBOutlet UILabel *artistLabel;
 @property (strong, nonatomic) IBOutlet MarqueeLabel *songLabel;
+@property (strong, nonatomic) IBOutlet EBVerticalProgressView *artworkProgressView;
 
 @end
 
@@ -109,7 +111,16 @@
 
 - (void) updateArtwork
 {
-    [EBResourcesController setImageForImageView: self.artworkView track: EBModel.sharedModel.audioController.currentTrack quality: EBTrackArtQualityFull];
+    __weak EBPlayerViewController *weakSelf = self;
+    [EBResourcesController setImageForImageView: self.artworkView track: EBModel.sharedModel.audioController.currentTrack quality: EBTrackArtQualityFull progress:^(NSUInteger receivedSize, long long expectedSize) {
+        if (weakSelf.artworkProgressView.hidden) {
+            weakSelf.artworkProgressView.hidden = NO;
+        }
+        weakSelf.artworkProgressView.progress = (double)receivedSize / (double)expectedSize;
+        if (weakSelf.artworkProgressView.progress > 0.999) {
+            weakSelf.artworkProgressView.hidden = YES;
+        }
+    }];
 }
 
 - (void) playbackHeadMoved

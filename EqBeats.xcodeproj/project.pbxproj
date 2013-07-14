@@ -42,6 +42,7 @@
 		8B8081EC1787DF35008C1BA9 /* EBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081EB1787DF35008C1BA9 /* EBModel.m */; };
 		8B8081EF1787F07F008C1BA9 /* EBDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081EE1787F07F008C1BA9 /* EBDownload.m */; };
 		8B8081F21787F0E0008C1BA9 /* EBTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8081F11787F0E0008C1BA9 /* EBTrack.m */; };
+		8B9A20F817923DCA0082C266 /* EBVerticalProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A20F717923DCA0082C266 /* EBVerticalProgressView.m */; };
 		8BD05FE81791A40200651AB9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD05FE71791A40200651AB9 /* MediaPlayer.framework */; };
 		8BD45CC3178ED56A00723431 /* EBMappableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD45CC2178ED56A00723431 /* EBMappableObject.m */; };
 		8BD45CC5179021A000723431 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD45CC4179021A000723431 /* SystemConfiguration.framework */; };
@@ -145,6 +146,8 @@
 		8B8081F01787F0E0008C1BA9 /* EBTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTrack.h; sourceTree = "<group>"; };
 		8B8081F11787F0E0008C1BA9 /* EBTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBTrack.m; sourceTree = "<group>"; };
 		8B8081F3178801CE008C1BA9 /* EBLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBLog.h; sourceTree = "<group>"; };
+		8B9A20F617923DCA0082C266 /* EBVerticalProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBVerticalProgressView.h; sourceTree = "<group>"; };
+		8B9A20F717923DCA0082C266 /* EBVerticalProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBVerticalProgressView.m; sourceTree = "<group>"; };
 		8BD05FE71791A40200651AB9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8BD45CC1178ED56A00723431 /* EBMappableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBMappableObject.h; sourceTree = "<group>"; };
 		8BD45CC2178ED56A00723431 /* EBMappableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBMappableObject.m; sourceTree = "<group>"; };
@@ -424,6 +427,8 @@
 				8B8081A11782D0FF008C1BA9 /* EBUserCell.m */,
 				8BD45CC81790277A00723431 /* EBVerticalExpandingLabel.h */,
 				8BD45CC91790277A00723431 /* EBVerticalExpandingLabel.m */,
+				8B9A20F617923DCA0082C266 /* EBVerticalProgressView.h */,
+				8B9A20F717923DCA0082C266 /* EBVerticalProgressView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				8BDB77081781A1A400DC380B /* EBModelObject.m in Sources */,
 				8B8081971782CB8A008C1BA9 /* EBShadowedTextField.m in Sources */,
 				8B8081A51782D1C6008C1BA9 /* EBFeaturedViewController.m in Sources */,
+				8B9A20F817923DCA0082C266 /* EBVerticalProgressView.m in Sources */,
 				8BDB770B1781A1B800DC380B /* EBPlaylist.m in Sources */,
 				8B8081F21787F0E0008C1BA9 /* EBTrack.m in Sources */,
 				8BD45CCA1790277A00723431 /* EBVerticalExpandingLabel.m in Sources */,
