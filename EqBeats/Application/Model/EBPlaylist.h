@@ -15,6 +15,7 @@
 @interface EBPlaylist : EBModelObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic) int32_t sortIndex;
 @property (nonatomic, retain) EBUser *author;
 @property (nonatomic, retain) NSOrderedSet *tracks;
 @end

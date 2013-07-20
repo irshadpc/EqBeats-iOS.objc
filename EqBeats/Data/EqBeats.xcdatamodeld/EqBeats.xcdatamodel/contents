@@ -18,6 +18,7 @@
     </entity>
     <entity name="EBPlaylist" representedClassName="EBPlaylist" parentEntity="EBModelObject" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortIndex" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBUser" inverseName="playlists" inverseEntity="EBUser" syncable="YES"/>
         <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBTrack" inverseName="playlists" inverseEntity="EBTrack" syncable="YES"/>
     </entity>
@@ -27,6 +28,7 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="EBTrack" representedClassName="EBTrack" parentEntity="EBModelObject" syncable="YES">
+        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBUser" inverseName="tracks" inverseEntity="EBUser" syncable="YES"/>
         <relationship name="download" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBDownload" inverseName="fromDownload" inverseEntity="EBDownload" syncable="YES"/>
@@ -40,11 +42,11 @@
         <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EBTrack" inverseName="artist" inverseEntity="EBTrack" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EBDownload" positionX="0" positionY="0" width="128" height="165"/>
-        <element name="EBModelObject" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="EBPlaylist" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="EBRadioStation" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="EBTrack" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="EBUser" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="EBDownload" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBModelObject" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBPlaylist" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBRadioStation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBTrack" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EBUser" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

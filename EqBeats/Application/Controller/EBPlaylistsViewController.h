@@ -6,8 +6,12 @@
 //  Copyright (c) 2013 Sudeium. All rights reserved.
 //
 
-#import "EBTracksViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface EBPlaylistsViewController : EBTracksViewController
+@class EBShadowedTextField;
+
+@interface EBPlaylistsViewController : UITableViewController
+@property (nonatomic, copy) NSArray *tracksToAdd;
+@property (nonatomic, strong) EBShadowedTextField *titleTextField;
 
 @end

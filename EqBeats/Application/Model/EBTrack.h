@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, EBTrackArtQuality) {
 @interface EBTrack : EBModelObject
 
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSNumber * duration;
 @property (nonatomic, retain) EBUser *artist;
 @property (nonatomic, retain) EBDownload *stream;
 @property (nonatomic, retain) EBDownload *download;

@@ -7,7 +7,10 @@
 //
 
 #import "EBTracksViewController.h"
+#import "EBPlaylist.h"
+#import "EBTrack.h"
 
 @interface EBPlaylistViewController : EBTracksViewController
+@property (nonatomic, strong) EBPlaylist *playlist;
 
 @end

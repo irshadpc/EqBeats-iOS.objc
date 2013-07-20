@@ -18,4 +18,8 @@
 
 + (EBModel*) sharedModel;
 
+// Fetches.  These fetch requests do no caching at all.  Every time you call them, it'll
+// hit the database.
++ (NSArray*) allPlaylists;
+
 @end

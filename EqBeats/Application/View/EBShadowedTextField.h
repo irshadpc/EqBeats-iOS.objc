@@ -9,5 +9,6 @@
 #import "SDNibLoadedTextField.h"
 
 @interface EBShadowedTextField : SDNibLoadedTextField
-
+@property (nonatomic, strong) UIColor *shadowColor;
+@property (nonatomic, assign) CGSize shadowOffset;
 @end

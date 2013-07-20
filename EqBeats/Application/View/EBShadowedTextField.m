@@ -10,22 +10,16 @@
 
 @implementation EBShadowedTextField
 
-- (id)initWithFrame:(CGRect)frame
+- (void) drawTextInRect:(CGRect)rect
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    if (self.shadowOffset.width == 0 && self.shadowOffset.height == 0) {
+        return [super drawTextInRect: rect];
     }
-    return self;
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(ctx);
+    CGContextSetShadowWithColor(ctx, self.shadowOffset, 0, self.shadowColor.CGColor);
+    [super drawTextInRect: rect];
+    CGContextRestoreGState(ctx);
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

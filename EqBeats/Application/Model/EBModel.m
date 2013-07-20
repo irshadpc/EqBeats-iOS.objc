@@ -100,4 +100,13 @@
     return _persistentStoreCoordinator;
 }
 
+#pragma mark - Fetches
+
++ (NSArray*) allPlaylists
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName: @"EBPlaylist"];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey: @"sortIndex" ascending: YES]];
+    return [[self.sharedModel mainThreadObjectContext] executeFetchRequest: fetchRequest error: nil];
+}
+
 @end

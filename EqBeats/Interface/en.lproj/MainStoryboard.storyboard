@@ -906,13 +906,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="a0z-XH-kpo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EBPlaylistCell" id="a0z-XH-kpo" customClass="EBPlaylistCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a0z-XH-kpo" id="HeW-t0-jne">
                                     <rect key="frame" x="-1" y="0.0" width="322" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlist Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m9q-rL-2vl">
+                                            <rect key="frame" x="46" y="2" width="256" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of tracks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LCP-89-M7Y">
+                                            <rect key="frame" x="46" y="22" width="256" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaylistIcon" id="4nJ-kx-eRp">
+                                            <rect key="frame" x="5" y="5" width="33" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.9256433073" green="0.69210195399999996" blue="1" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HJc-sB-Upq">
+                                            <rect key="frame" x="292" y="0.0" width="30" height="45"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" backgroundImage="ContextButtonIcon">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted" backgroundImage="ContextButtonIconHighlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contextButton" destination="HJc-sB-Upq" id="9hW-EB-2xa"/>
+                                    <outlet property="nameLabel" destination="m9q-rL-2vl" id="hkI-dh-eA6"/>
+                                    <outlet property="tracksLabel" destination="LCP-89-M7Y" id="ONg-Nn-6A2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -936,49 +973,52 @@
         <!--Playlist View Controller-->
         <scene sceneID="Er5-sl-6ZB">
             <objects>
-                <viewController id="gol-Fy-Yia" customClass="PlaylistViewController" sceneMemberID="viewController">
+                <viewController id="gol-Fy-Yia" customClass="EBPlaylistViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eLq-OP-646">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlaylistOptionsCell" id="HrQ-J1-wpa" customClass="PlaylistOptionsCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EBPlaylistOptionsCellTop" id="HrQ-J1-wpa" customClass="EBPlaylistOptionsCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HrQ-J1-wpa" id="Xpq-OE-pen">
                                     <rect key="frame" x="-1" y="0.0" width="322" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4AT-po-0Ax">
-                                            <rect key="frame" x="8" y="8" width="95" height="29"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4AT-po-0Ax">
+                                            <rect key="frame" x="1" y="0.0" width="107" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <color key="backgroundColor" red="0.27058823529411763" green="0.20392156862745098" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Edit">
-                                                <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9kh-3o-awN">
-                                            <rect key="frame" x="113" y="8" width="94" height="29"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9kh-3o-awN">
+                                            <rect key="frame" x="108" y="0.0" width="106" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <color key="backgroundColor" red="0.52549019607843139" green="0.22352941176470589" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Clear">
-                                                <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rHS-gn-UuF">
-                                            <rect key="frame" x="217" y="8" width="95" height="29"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rHS-gn-UuF">
+                                            <rect key="frame" x="214" y="0.0" width="107" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <color key="backgroundColor" red="0.72156862749999995" green="0.20392156859999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Delete">
-                                                <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted">
@@ -988,9 +1028,35 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="clearButton" destination="9kh-3o-awN" id="Un4-Jl-8yl"/>
-                                    <outlet property="deleteButton" destination="rHS-gn-UuF" id="xAd-CN-L1a"/>
-                                    <outlet property="editButton" destination="4AT-po-0Ax" id="S42-sG-Bwb"/>
+                                    <outlet property="clearButton" destination="9kh-3o-awN" id="qAI-yM-ZXg"/>
+                                    <outlet property="deleteButton" destination="rHS-gn-UuF" id="En1-nH-IqK"/>
+                                    <outlet property="editButton" destination="4AT-po-0Ax" id="VGw-xn-AGD"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EBPlaylistOptionsCellBottom" id="4qZ-ZP-yOu" customClass="EBPlaylistOptionsCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4qZ-ZP-yOu" id="qk1-ji-L80">
+                                    <rect key="frame" x="-1" y="0.0" width="322" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W60-5r-DNo">
+                                            <rect key="frame" x="10" y="0.0" width="302" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" title="Add From Search...">
+                                                <color key="titleColor" red="0.52549019610000003" green="0.22352941179999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addButton" destination="W60-5r-DNo" id="Jkj-j1-q7A"/>
+                                    <outlet property="clearButton" destination="W60-5r-DNo" id="0Ul-iC-cVD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1000,15 +1066,15 @@
                             <outlet property="delegate" destination="gol-Fy-Yia" id="RZ2-vo-Wax"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="Hey-cC-HQn">
                         <nil key="title"/>
                         <view key="titleView" opaque="NO" contentMode="scaleToFill" id="y1z-8D-ghw">
-                            <rect key="frame" x="80" y="6" width="160" height="33"/>
+                            <rect key="frame" x="85" y="6" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New Playlist" placeholder="Playlist Name" textAlignment="center" minimumFontSize="18" id="jzy-Ur-n4i" customClass="ShadowedTextField">
-                                    <rect key="frame" x="0.0" y="0.0" width="160" height="33"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New Playlist" placeholder="Playlist Name" textAlignment="center" minimumFontSize="18" id="jzy-Ur-n4i" customClass="EBShadowedTextField">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="33"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -1021,13 +1087,17 @@
                                             <size key="value" width="0.0" height="-1"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="titleTextEditingChanged:" destination="gol-Fy-Yia" eventType="editingChanged" id="nKH-ya-oZ0"/>
+                                        <outlet property="delegate" destination="gol-Fy-Yia" id="ZTf-i4-fnH"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                     </navigationItem>
                     <connections>
-                        <outlet property="titleTextField" destination="jzy-Ur-n4i" id="eDS-r6-sih"/>
+                        <outlet property="titleTextField" destination="jzy-Ur-n4i" id="lGV-cW-smM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dY-hG-4Ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1097,6 +1167,8 @@
     </scenes>
     <resources>
         <image name="AboutIcon" width="24" height="21"/>
+        <image name="ContextButtonIcon" width="30" height="44"/>
+        <image name="ContextButtonIconHighlighted" width="30" height="44"/>
         <image name="FeaturedIcon.png" width="39" height="26"/>
         <image name="NextTrack" width="31" height="23"/>
         <image name="NowPlayingBottomBackground" width="320" height="96"/>
@@ -1117,6 +1189,7 @@
         <image name="PlayerRepeatIconSelected" width="34" height="24"/>
         <image name="PlayerShuffleIcon" width="28" height="20"/>
         <image name="PlayerShuffleIconSelected" width="30" height="22"/>
+        <image name="PlaylistIcon" width="24" height="24"/>
         <image name="PlaylistIcon.png" width="24" height="24"/>
         <image name="PreviousTrack" width="31" height="23"/>
         <image name="RadioIcon.png" width="26" height="24"/>

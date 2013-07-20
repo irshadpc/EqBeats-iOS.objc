@@ -14,6 +14,7 @@
 @implementation EBPlaylist
 
 @dynamic name;
+@dynamic sortIndex;
 @dynamic author;
 @dynamic tracks;
 

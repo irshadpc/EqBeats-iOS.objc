@@ -16,6 +16,7 @@
 }
 
 @dynamic title;
+@dynamic duration;
 @dynamic artist;
 @dynamic stream;
 @dynamic download;
