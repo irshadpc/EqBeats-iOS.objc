@@ -7,6 +7,7 @@
 //
 
 #import "EBPlaylistViewController.h"
+#import "EBSearchViewController.h"
 #import "EBPlaylistOptionsCell.h"
 #import "EBShadowedTextField.h"
 
@@ -34,6 +35,7 @@
         self.playlist = [[EBPlaylist alloc] initWithEntity: [NSEntityDescription entityForName: @"EBPlaylist" inManagedObjectContext: EBModel.sharedModel.mainThreadObjectContext] insertIntoManagedObjectContext: nil];
         self.playlist.name = @"New Playlist";
     }
+    self.titleTextField.text = self.playlist.name;
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -47,7 +49,7 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear: animated];
-    if (![self.playlist isInserted]) {
+    if (self.playlist.managedObjectContext == nil) {
         self.titleTextField.text = nil;
         [self.titleTextField becomeFirstResponder];
     }
@@ -143,6 +145,15 @@
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
     return [textField resignFirstResponder];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString: @"AddFromSearchSegue"]) {
+        EBSearchViewController *searchVC = [[segue.destinationViewController storyboard] instantiateViewControllerWithIdentifier: @"EBSearchViewController"];
+        searchVC.playlist = self.playlist;
+        [segue.destinationViewController pushViewController: searchVC animated: NO];
+    }
 }
 
 @end

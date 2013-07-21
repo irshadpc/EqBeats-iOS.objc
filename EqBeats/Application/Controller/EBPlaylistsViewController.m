@@ -7,6 +7,7 @@
 //
 
 #import "EBPlaylistsViewController.h"
+#import "EBPlaylistViewController.h"
 #import "EBModel.h"
 #import "EBPlaylist.h"
 #import "EBTrack.h"
@@ -39,11 +40,17 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.playlists.count == 0) {
+        return 1;
+    }
     return self.playlists.count;
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.playlists.count == 0) {
+        return [tableView dequeueReusableCellWithIdentifier: @"AddPlaylistCell"];
+    }
     EBPlaylistCell *cell = [tableView dequeueReusableCellWithIdentifier: @"EBPlaylistCell"];
     if (self.tracksToAdd != nil) {
         cell.contextButton.hidden = YES;
@@ -53,6 +60,7 @@
     }
     EBPlaylist *playlist = self.playlists[indexPath.row];
     cell.nameLabel.text = playlist.name;
+    cell.accessoryType = UITableViewCellAccessoryNone;
     if (playlist.tracks.count == 0) {
         cell.tracksLabel.text = @"Empty";
     } else {
@@ -71,9 +79,46 @@
     return YES;
 }
 
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        EBPlaylist *playlist = self.playlists[indexPath.row];
+        [EBModel.sharedModel.mainThreadObjectContext deleteObject: playlist];
+        [EBModel.sharedModel.mainThreadObjectContext save: nil];
+        self.playlists = [EBModel allPlaylists];
+        if (self.playlists.count != 0) {
+            [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+        } else {
+            [self.tableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+        }
+    }
+}
+
+- (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    EBPlaylist *sourcePlaylist = self.playlists[sourceIndexPath.row];
+    EBPlaylist *destinationPlaylist = self.playlists[sourceIndexPath.row];
+    NSInteger x = sourcePlaylist.sortIndex;
+    sourcePlaylist.sortIndex = destinationPlaylist.sortIndex;
+    destinationPlaylist.sortIndex = x;
+    [EBModel.sharedModel.mainThreadObjectContext save: nil];
+    self.playlists = [EBModel allPlaylists];
+    [self.tableView reloadData];
+}
+
 - (void) contextButtonAction: (id) sender
 {
     
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString: @"PlaylistCellPushSegue"]) {
+        UITableViewCell *cell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell: cell];
+        EBPlaylist *playlist = self.playlists[indexPath.row];
+        [segue.destinationViewController setPlaylist: playlist];
+    }
 }
 
 @end

@@ -481,18 +481,31 @@
             </objects>
             <point key="canvasLocation" x="1514" y="-601"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qla-4A-55A">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="s3K-K3-qBA" customClass="EBNavigationController" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5UJ-Mr-MXW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gnv-Rm-k6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2426" y="70"/>
+        </scene>
         <!--Search View Controller - Search-->
         <scene sceneID="WHg-I2-GNM">
             <objects>
-                <tableViewController title="Search" id="xMV-H3-N6F" customClass="EBSearchViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EBSearchViewController" autoresizesArchivedViewToFullSize="NO" title="Search" id="xMV-H3-N6F" customClass="EBSearchViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qBh-yf-DN6">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="n0c-DN-BRo">
+                        <searchBar key="tableHeaderView" contentMode="redraw" translucent="NO" id="n0c-DN-BRo">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="0.091979874119999999" green="0.060623101560000003" blue="0.2048642792" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="tintColor" red="0.50980392159999999" green="0.22352941179999999" blue="0.6705882353" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <scopeButtonTitles>
                                 <string>Tracks</string>
@@ -584,7 +597,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1514" y="740"/>
+            <point key="canvasLocation" x="2837" y="740"/>
         </scene>
         <!--Radio List View Controller - Radio-->
         <scene sceneID="lEX-qA-Voo">
@@ -906,24 +919,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EBPlaylistCell" id="a0z-XH-kpo" customClass="EBPlaylistCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EBPlaylistCell" id="a0z-XH-kpo" customClass="EBPlaylistCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a0z-XH-kpo" id="HeW-t0-jne">
-                                    <rect key="frame" x="-1" y="0.0" width="322" height="43"/>
+                                    <rect key="frame" x="-1" y="0.0" width="301" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlist Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m9q-rL-2vl">
-                                            <rect key="frame" x="46" y="2" width="256" height="18"/>
+                                            <rect key="frame" x="46" y="5" width="238" height="18"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of tracks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LCP-89-M7Y">
-                                            <rect key="frame" x="46" y="22" width="256" height="18"/>
+                                            <rect key="frame" x="46" y="22" width="238" height="16"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaylistIcon" id="4nJ-kx-eRp">
@@ -931,8 +944,8 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.9256433073" green="0.69210195399999996" blue="1" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HJc-sB-Upq">
-                                            <rect key="frame" x="292" y="0.0" width="30" height="45"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="HJc-sB-Upq">
+                                            <rect key="frame" x="292" y="0.0" width="30" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" backgroundImage="ContextButtonIcon">
@@ -949,6 +962,31 @@
                                     <outlet property="contextButton" destination="HJc-sB-Upq" id="9hW-EB-2xa"/>
                                     <outlet property="nameLabel" destination="m9q-rL-2vl" id="hkI-dh-eA6"/>
                                     <outlet property="tracksLabel" destination="LCP-89-M7Y" id="ONg-Nn-6A2"/>
+                                    <segue destination="gol-Fy-Yia" kind="push" identifier="PlaylistCellPushSegue" id="SBU-77-mxY"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddPlaylistCell" id="VQp-MN-n5N">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VQp-MN-n5N" id="17E-d3-TdG">
+                                    <rect key="frame" x="-1" y="0.0" width="322" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddArrowHelpIcon" id="W17-2j-Goh">
+                                            <rect key="frame" x="272" y="0.0" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a playlist" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8mX-yD-cIo">
+                                            <rect key="frame" x="118" y="0.0" width="153" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gol-Fy-Yia" kind="push" id="9Z4-U2-ilJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1051,6 +1089,9 @@
                                             <state key="highlighted">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <segue destination="s3K-K3-qBA" kind="modal" identifier="AddFromSearchSegue" id="OMI-Aw-cZd"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -1157,7 +1198,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="xMV-H3-N6F" kind="relationship" relationship="rootViewController" id="0vU-21-pHI"/>
+                        <segue destination="xMV-H3-N6F" kind="relationship" relationship="rootViewController" id="rt0-NB-m3Q"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSb-T5-BNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1167,6 +1208,7 @@
     </scenes>
     <resources>
         <image name="AboutIcon" width="24" height="21"/>
+        <image name="AddArrowHelpIcon" width="30" height="30"/>
         <image name="ContextButtonIcon" width="30" height="44"/>
         <image name="ContextButtonIconHighlighted" width="30" height="44"/>
         <image name="FeaturedIcon.png" width="39" height="26"/>
@@ -1203,4 +1245,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="SBU-77-mxY"/>
+    </inferredMetricsTieBreakers>
 </document>

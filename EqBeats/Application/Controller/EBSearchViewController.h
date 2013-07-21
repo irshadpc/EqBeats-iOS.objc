@@ -8,6 +8,8 @@
 
 #import "EBTracksViewController.h"
 
+@class EBPlaylist;
 @interface EBSearchViewController : EBTracksViewController <UISearchDisplayDelegate>
+@property (nonatomic, strong) EBPlaylist *playlist;
 
 @end
