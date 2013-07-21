@@ -13,6 +13,7 @@
 
 @interface EBPlaylistViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet EBShadowedTextField *titleTextField;
+@property (strong, nonatomic) EBSearchViewController *searchController;
 
 @end
 
@@ -36,6 +37,17 @@
         self.playlist.name = @"New Playlist";
     }
     self.titleTextField.text = self.playlist.name;
+    [self.tableView reloadData];
+    if (self.tableView.contentOffset.y == 0) {
+        CGFloat tableHeight = self.tableView.frame.size.height - self.tableView.contentInset.top;
+        if (EBDeviceSystemMajorVersion() >= 7) {
+            tableHeight -= 64;
+        }
+        if (self.tableView.contentSize.height < tableHeight + 44) {
+            self.tableView.contentSize = CGSizeMake(self.tableView.contentSize.width, tableHeight + 44);
+        }
+        [self.tableView setContentOffset: CGPointMake(0, 44)];
+    }
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -150,9 +162,9 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString: @"AddFromSearchSegue"]) {
-        EBSearchViewController *searchVC = [[segue.destinationViewController storyboard] instantiateViewControllerWithIdentifier: @"EBSearchViewController"];
-        searchVC.playlist = self.playlist;
-        [segue.destinationViewController pushViewController: searchVC animated: NO];
+        self.searchController = [[segue.destinationViewController storyboard] instantiateViewControllerWithIdentifier: @"EBSearchViewController"];
+        self.searchController.playlist = self.playlist;
+        [segue.destinationViewController pushViewController: self.searchController animated: NO];
     }
 }
 

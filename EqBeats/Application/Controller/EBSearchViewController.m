@@ -62,7 +62,9 @@
 - (void) doneButtonAction: (id) sender
 {
     NSArray *tracks = [self.searchResults objectsAtIndexes: self.pickedIndexes];
-    [self.playlist addTracks: [NSOrderedSet orderedSetWithArray: tracks]];
+    if (tracks.count > 0) {
+        [self.playlist addTracks: [NSOrderedSet orderedSetWithArray: tracks]];
+    }
     [self.presentingViewController dismissViewControllerAnimated: YES completion: nil];
 }
 

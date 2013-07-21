@@ -502,10 +502,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" translucent="NO" id="n0c-DN-BRo">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="n0c-DN-BRo">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="0.50980392159999999" green="0.22352941179999999" blue="0.6705882353" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <textInputTraits key="textInputTraits"/>
                             <scopeButtonTitles>
                                 <string>Tracks</string>
@@ -1027,7 +1027,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4AT-po-0Ax">
                                             <rect key="frame" x="1" y="0.0" width="107" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.27058823529411763" green="0.20392156862745098" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.15208382904529572" green="0.086301922798156738" blue="0.47120752930641174" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Edit">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1040,7 +1040,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9kh-3o-awN">
                                             <rect key="frame" x="108" y="0.0" width="106" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.52549019607843139" green="0.22352941176470589" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.34941312670707703" green="0.10544661432504654" blue="0.47362861037254333" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Clear">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1053,7 +1053,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rHS-gn-UuF">
                                             <rect key="frame" x="214" y="0.0" width="107" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.72156862749999995" green="0.20392156859999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.46882918477058411" green="0.087069325149059296" blue="0.31712150573730469" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Delete">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1087,7 +1087,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="0.34941312670000002" green="0.10544661430000001" blue="0.47362861039999998" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <segue destination="s3K-K3-qBA" kind="modal" identifier="AddFromSearchSegue" id="OMI-Aw-cZd"/>

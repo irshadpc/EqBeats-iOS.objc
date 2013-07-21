@@ -119,6 +119,9 @@
     } else {
         [self setSelectedViewController: self.moreNavigationController];
     }
+    if ([self.selectedViewController isKindOfClass: [UINavigationController class]]) {
+        [(id)self.selectedViewController popToRootViewControllerAnimated: NO];
+    }
     [self updateButtonSelectionState];
 }
 
