@@ -36,8 +36,6 @@
     NSURL *cachePath = [NSURL fileURLWithPath:[[EBTrackArtworkDownloadManager sharedManager].imageCache diskCachePath] isDirectory: YES];
     NSArray *cachedArt = [fm contentsOfDirectoryAtURL: cachePath includingPropertiesForKeys: nil options:0 error: nil];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity: bundledArt.count + cachedArt.count];
-    EBLog(@"Bundled art:%@", bundledArt);
-    EBLog(@"Cached art:%@", cachedArt);
     [array addObjectsFromArray: bundledArt];
     [array addObjectsFromArray: cachedArt];
     // Shuffle
