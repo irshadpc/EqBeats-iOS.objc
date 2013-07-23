@@ -10,6 +10,7 @@
 #import "EBImageView.h"
 #import "SDHorizontalLayoutView.h"
 #import "SDVerticalLayoutView.h"
+#import "UIImageView+WebCache.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface EBLaunchBackgroundView ()
@@ -68,7 +69,8 @@ static const CGFloat kAnimationOffset = 90.0f;
     for (NSInteger i = 0; i < neededCols; i++) {
         SDVerticalLayoutView *view = [[SDVerticalLayoutView alloc] initWithFrame: CGRectMake(0, 0, kCellSize.width, self.frame.size.height)];
         for (NSInteger j = 0; j < numRows; j++) {
-            EBImageView *cell = [[EBImageView alloc] initWithImage: [self.dataSource imageForLaunchBackgroundView: self]];
+            EBImageView *cell = [[EBImageView alloc] init];
+            [self populateCell: cell];
             cell.frame = CGRectMake(0, 0, kCellSize.width, kCellSize.height);
             cell.backgroundColor = [UIColor whiteColor];
             [view addSubview: cell];
@@ -121,6 +123,24 @@ static const CGFloat kAnimationOffset = 90.0f;
         view.frame = f;
         [self.columns removeObjectAtIndex: 0];
         [self.columns addObject: view];
+        for (EBImageView *cell in view.subviews) {
+            [self populateCell: cell];
+        }
+    }
+}
+
+- (void) populateCell: (EBImageView*) cell
+{
+    NSURL *url = [self.dataSource imageForLaunchBackgroundView: self];
+    if ([url isFileURL]) {
+        UIImage *image = [UIImage imageWithContentsOfFile: url.absoluteString];
+        while (image == nil) {
+            url = [self.dataSource imageForLaunchBackgroundView: self];
+            image = [UIImage imageWithContentsOfFile: url.path];
+        }
+        cell.image = image;
+    } else {
+        [cell loadImageFromURL: url placeHolderImage: nil completion: nil];
     }
 }
 

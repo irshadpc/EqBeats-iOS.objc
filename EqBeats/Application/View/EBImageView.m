@@ -24,7 +24,7 @@
     }
 }
 
-- (void) loadImageFromURL:(NSURL *)url placeHolderImage:(UIImage *)placeholder progress:(SDWebImageDownloaderProgressBlock)progress completion:(void (^)(UIImage *, NSError *, SDImageCacheType))completion
+- (void) loadImageFromURL: (NSURL*) url placeHolderImage: (UIImage*) placeholder imageManager: (SDWebImageManager*) manager progress: (SDWebImageDownloaderProgressBlock) progress completion: (void (^)(UIImage *image, NSError *error, SDImageCacheType cacheType)) completion
 {
     [self cancelCurrentImageLoad];
     if (placeholder) {
@@ -32,7 +32,7 @@
     }
     
     if (url != nil) {
-        self.loadImageOperation = [[SDWebImageManager sharedManager] downloadWithURL: url options: 0 progress: progress completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+        self.loadImageOperation = [manager downloadWithURL: url options: 0 progress: progress completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
             if (image != nil) {
                 self.image = image;
                 [self setNeedsLayout];
@@ -42,6 +42,11 @@
             }
         }];
     }
+}
+
+- (void) loadImageFromURL:(NSURL *)url placeHolderImage:(UIImage *)placeholder progress:(SDWebImageDownloaderProgressBlock)progress completion:(void (^)(UIImage *, NSError *, SDImageCacheType))completion
+{
+    [self loadImageFromURL: url placeHolderImage: placeholder imageManager: [SDWebImageManager sharedManager] progress: progress completion: completion];
 }
 
 - (void) loadImageFromURL: (NSURL*) url placeHolderImage: (UIImage*) placeholder completion: (void (^)(UIImage *image, NSError *error, SDImageCacheType cacheType)) completion

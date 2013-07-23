@@ -15,6 +15,7 @@
 
 - (void) loadImageFromURL: (NSURL*) url placeHolderImage: (UIImage*) placeholder completion: (void (^)(UIImage *image, NSError *error, SDImageCacheType cacheType)) completion;
 - (void) loadImageFromURL: (NSURL*) url placeHolderImage: (UIImage*) placeholder progress: (SDWebImageDownloaderProgressBlock) progress completion: (void (^)(UIImage *image, NSError *error, SDImageCacheType cacheType)) completion;
+- (void) loadImageFromURL: (NSURL*) url placeHolderImage: (UIImage*) placeholder imageManager: (SDWebImageManager*) manager progress: (SDWebImageDownloaderProgressBlock) progress completion: (void (^)(UIImage *image, NSError *error, SDImageCacheType cacheType)) completion;
 
 
 @end

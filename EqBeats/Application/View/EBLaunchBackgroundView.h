@@ -11,7 +11,7 @@
 @class EBLaunchBackgroundView;
 @protocol EBLaunchBackgroundViewDataSource <NSObject>
 
-- (UIImage*) imageForLaunchBackgroundView: (EBLaunchBackgroundView*) view;
+- (NSURL*) imageForLaunchBackgroundView: (EBLaunchBackgroundView*) view;
 
 @end
 

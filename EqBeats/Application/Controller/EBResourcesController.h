@@ -9,9 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "EBTrack.h"
 #import "SDWebImageDownloader.h"
+#import "SDWebImageManager.h"
 
 extern NSUInteger EBDeviceSystemMajorVersion();
 @class EBImageView;
+
+@interface EBTrackArtworkDownloadManager : SDWebImageManager
++ (instancetype) sharedManager;
+@end
+
 @interface EBResourcesController : NSObject
 
 + (void) setImageForImageView: (EBImageView*) imageView

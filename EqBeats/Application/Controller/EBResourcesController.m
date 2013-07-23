@@ -19,6 +19,31 @@ NSUInteger EBDeviceSystemMajorVersion() {
     return _deviceSystemMajorVersion;
 }
 
+@interface SDWebImageManager ()
+@property (strong, nonatomic, readwrite) SDImageCache *imageCache;
+@end
+
+@implementation EBTrackArtworkDownloadManager
+
++ (instancetype) sharedManager
+{
+    static dispatch_once_t once;
+    static id instance;
+    dispatch_once(&once, ^{instance = self.new;});
+    return instance;
+}
+
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        self.imageCache = [[SDImageCache alloc] initWithNamespace: @"artwork"];
+    }
+    return self;
+}
+
+@end
+
 @implementation EBResourcesController
 
 + (void) setImageForImageView: (EBImageView*) imageView
@@ -37,8 +62,13 @@ NSUInteger EBDeviceSystemMajorVersion() {
         [imageView setImage: [self noArtworkImageForQuality: quality]];
     } else {
         __weak EBImageView *weakImageView = imageView;
+        SDWebImageManager *manager = [EBTrackArtworkDownloadManager sharedManager];
+        if (quality != EBTrackArtQualityThumb) {
+            manager = [SDWebImageManager sharedManager];
+        }
         [imageView loadImageFromURL: [track artURLAtQuality: quality]
                    placeHolderImage: [self placeholderImageForQuality: quality]
+                       imageManager: manager
                            progress: progress
                          completion:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                              if (image == nil || error != nil) {
