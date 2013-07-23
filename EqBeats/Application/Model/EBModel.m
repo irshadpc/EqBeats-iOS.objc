@@ -8,6 +8,7 @@
 
 #import "EBModel.h"
 #import "EBResourcesController.h"
+#import "NSManagedObjectModel+KCOrderedAccessorFix.h"
 
 @implementation EBModel
 @synthesize mainThreadObjectContext = _mainThreadObjectContext;
@@ -29,6 +30,7 @@
     if (self) {
         self.audioController = [EBAudioController new];
         [self mainThreadObjectContext];
+        [[self managedObjectModel] kc_generateOrderedSetAccessors];
     }
     return self;
 }

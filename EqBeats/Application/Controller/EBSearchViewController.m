@@ -63,7 +63,9 @@
 {
     NSArray *tracks = [self.searchResults objectsAtIndexes: self.pickedIndexes];
     if (tracks.count > 0) {
-        [self.playlist addTracks: [NSOrderedSet orderedSetWithArray: tracks]];
+        for (EBTrack *track in tracks) {
+            [self.playlist addTracksObject: track];
+        }
     }
     [self.presentingViewController dismissViewControllerAnimated: YES completion: nil];
 }
