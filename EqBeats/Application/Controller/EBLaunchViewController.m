@@ -10,6 +10,7 @@
 #import "EBLaunchBackgroundView.h"
 #import "SDImageCache.h"
 #import "EBResourcesController.h"
+#import "EBArrayUtility.h"
 
 @interface EBLaunchViewController () <EBLaunchBackgroundViewDataSource>
 @property (nonatomic, strong) NSMutableArray *launchImages;
@@ -39,11 +40,7 @@
     [array addObjectsFromArray: bundledArt];
     [array addObjectsFromArray: cachedArt];
     // Shuffle
-    NSInteger count = array.count;
-    for (int i = 0; i < count; i++) {
-        NSInteger index = arc4random_uniform(count-i) + i;
-        [array exchangeObjectAtIndex: i withObjectAtIndex: index];
-    }
+    [EBArrayUtility shuffleArray: array];
     self.launchImages = array;
 }
 

@@ -11,6 +11,6 @@
 #import "EBTrack.h"
 
 @interface EBPlaylistViewController : EBTracksViewController
-@property (nonatomic, strong) EBPlaylist *playlist;
+@property (nonatomic, strong) EBPlaylist *editingPlaylist;
 
 @end

@@ -87,9 +87,29 @@
     }];
 }
 
+- (void) reloadData
+{
+    [super reloadData];
+    if (self.tableView.contentOffset.y == 0) {
+        CGFloat tableHeight = self.tableView.frame.size.height - self.tableView.contentInset.top;
+        if (EBDeviceSystemMajorVersion() >= 7) {
+            tableHeight -= 64;
+        }
+        if (self.tableView.contentSize.height < tableHeight + 44) {
+            self.tableView.contentSize = CGSizeMake(self.tableView.contentSize.width, tableHeight + 44);
+        }
+        [self.tableView setContentOffset: CGPointMake(0, 44)];
+    }
+}
+
 - (NSArray*) tracks
 {
     return @[self.featured, self.latest, self.random][self.segmentedControl.selectedSegmentIndex];
+}
+
+- (NSArray*) allTracks
+{
+    return self.tracks;
 }
 
 - (void) segmentedControlChanged:(id)sender
@@ -111,7 +131,7 @@
 
 - (EBTrack*) trackForIndexPath:(NSIndexPath *)indexPath
 {
-    return self.tracks[indexPath.row];
+    return self.tracks[indexPath.row-1];
 }
 
 - (NSArray*) tracksForQueueAtIndexPath:(NSIndexPath *)indexPath
@@ -121,7 +141,20 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.tracks.count;
+    if (self.tracks.count == 0) {
+        return 0;
+    } else {
+        return self.tracks.count + 1;
+    }
+}
+
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return self.trackListOperationsCell;
+    } else {
+        return [super tableView: tableView cellForRowAtIndexPath: indexPath];
+    }
 }
 
 @end

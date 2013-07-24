@@ -913,7 +913,7 @@
         <!--Playlists View Controller - Playlists-->
         <scene sceneID="8g2-OQ-FaX">
             <objects>
-                <tableViewController title="Playlists" id="lkO-QZ-Tl5" customClass="EBPlaylistsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EBPlaylistsViewController" title="Playlists" id="lkO-QZ-Tl5" customClass="EBPlaylistsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="UfT-vg-29N">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -986,7 +986,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gol-Fy-Yia" kind="push" id="9Z4-U2-ilJ"/>
+                                    <segue destination="gol-Fy-Yia" kind="push" identifier="AddPlaylistSegue" id="9Z4-U2-ilJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -999,7 +999,7 @@
                     <navigationItem key="navigationItem" title="Playlists" id="CFc-EH-Rvw">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cOX-vr-3Vm">
                             <connections>
-                                <segue destination="gol-Fy-Yia" kind="push" id="YMg-hH-0bp"/>
+                                <segue destination="gol-Fy-Yia" kind="push" identifier="AddPlaylistButtonSegue" id="YMg-hH-0bp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1027,36 +1027,43 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4AT-po-0Ax">
                                             <rect key="frame" x="1" y="0.0" width="107" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.15208382904529572" green="0.086301922798156738" blue="0.47120752930641174" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" title="Edit">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <view contentMode="scaleToFill" id="yNj-rZ-dng">
+                                            <rect key="frame" x="107" y="0.0" width="1" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9kh-3o-awN">
                                             <rect key="frame" x="108" y="0.0" width="106" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.34941312670707703" green="0.10544661432504654" blue="0.47362861037254333" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" title="Clear">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <view contentMode="scaleToFill" id="Mpk-7c-Ty6">
+                                            <rect key="frame" x="214" y="0.0" width="1" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rHS-gn-UuF">
                                             <rect key="frame" x="214" y="0.0" width="107" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.46882918477058411" green="0.087069325149059296" blue="0.31712150573730469" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" title="Delete">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted">
@@ -1246,6 +1253,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SBU-77-mxY"/>
+        <segue reference="YMg-hH-0bp"/>
     </inferredMetricsTieBreakers>
 </document>

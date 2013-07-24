@@ -32,11 +32,11 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear: animated];
-    if (self.playlist == nil) {
-        self.playlist = [[EBPlaylist alloc] initWithEntity: [NSEntityDescription entityForName: @"EBPlaylist" inManagedObjectContext: EBModel.sharedModel.mainThreadObjectContext] insertIntoManagedObjectContext: nil];
-        self.playlist.name = @"New Playlist";
+    if (self.editingPlaylist == nil) {
+        self.editingPlaylist = [[EBPlaylist alloc] initWithEntity: [NSEntityDescription entityForName: @"EBPlaylist" inManagedObjectContext: EBModel.sharedModel.mainThreadObjectContext] insertIntoManagedObjectContext: nil];
+        self.editingPlaylist.name = @"New Playlist";
     }
-    self.titleTextField.text = self.playlist.name;
+    self.titleTextField.text = self.editingPlaylist.name;
     [self.tableView reloadData];
     if (self.tableView.contentOffset.y == 0) {
         CGFloat tableHeight = self.tableView.frame.size.height - self.tableView.contentInset.top;
@@ -53,7 +53,7 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear: animated];
-    if ([self.playlist hasChanges]) {
+    if ([self.editingPlaylist hasChanges]) {
         [EBModel.sharedModel.mainThreadObjectContext save: nil];
     }
 }
@@ -61,7 +61,7 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear: animated];
-    if (self.playlist.managedObjectContext == nil) {
+    if (self.editingPlaylist.managedObjectContext == nil) {
         self.titleTextField.text = nil;
         [self.titleTextField becomeFirstResponder];
     }
@@ -76,7 +76,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.playlist.tracks.count + 2;
+    return self.editingPlaylist.tracks.count + 2;
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,12 +101,12 @@
 
 - (EBTrack*) trackForIndexPath:(NSIndexPath *)indexPath
 {
-    return self.playlist.tracks[indexPath.row-1];
+    return self.editingPlaylist.tracks[indexPath.row-1];
 }
 
 - (NSArray*) tracksForQueueAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.playlist.tracks.array;
+    return self.editingPlaylist.tracks.array;
 }
 
 #pragma mark - Actions
@@ -138,7 +138,7 @@
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (self.playlist.name == nil) {
+    if (self.editingPlaylist.name == nil) {
         textField.text = nil;
     }
 }
@@ -147,11 +147,11 @@
 {
     if (textField.text.length == 0) {
         textField.text = @"New Playlist";
-    } else if (![self.playlist isInserted]) {
-        self.playlist.sortIndex = [[[EBModel allPlaylists] lastObject] sortIndex] + 1;
-        [EBModel.sharedModel.mainThreadObjectContext insertObject: self.playlist];
+    } else if (self.editingPlaylist.managedObjectContext == nil) {
+        self.editingPlaylist.sortIndex = [[[EBModel allPlaylists] lastObject] sortIndex] + 1;
+        [EBModel.sharedModel.mainThreadObjectContext insertObject: self.editingPlaylist];
     }
-    self.playlist.name = textField.text;
+    self.editingPlaylist.name = textField.text;
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
@@ -163,7 +163,7 @@
 {
     if ([segue.identifier isEqualToString: @"AddFromSearchSegue"]) {
         self.searchController = [[segue.destinationViewController storyboard] instantiateViewControllerWithIdentifier: @"EBSearchViewController"];
-        self.searchController.playlist = self.playlist;
+        self.searchController.playlist = self.editingPlaylist;
         [segue.destinationViewController pushViewController: self.searchController animated: NO];
     }
 }

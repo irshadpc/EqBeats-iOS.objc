@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		70C7834F430747419A702B54 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D55148FE9BC4CE18B300958 /* libPods.a */; };
 		8B1987E3179A774900CC200D /* EBPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1987E2179A774900CC200D /* EBPlaylistCell.m */; };
+		8B318977179FEEF800960C7C /* EBArrayUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B318976179FEEF800960C7C /* EBArrayUtility.m */; };
 		8B51D91B178EC0E400264F1D /* NSString+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D918178EC0E400264F1D /* NSString+Color.m */; };
 		8B51D91C178EC0E400264F1D /* UIColor+HexHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D91A178EC0E400264F1D /* UIColor+HexHTML.m */; };
 		8B80776A17916F9700399043 /* EBPlaybackScrubControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B80776917916F9700399043 /* EBPlaybackScrubControl.m */; };
@@ -88,6 +89,8 @@
 		4D55148FE9BC4CE18B300958 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1987E1179A774900CC200D /* EBPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPlaylistCell.h; sourceTree = "<group>"; };
 		8B1987E2179A774900CC200D /* EBPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPlaylistCell.m; sourceTree = "<group>"; };
+		8B318975179FEEF800960C7C /* EBArrayUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBArrayUtility.h; sourceTree = "<group>"; };
+		8B318976179FEEF800960C7C /* EBArrayUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBArrayUtility.m; sourceTree = "<group>"; };
 		8B51D917178EC0E400264F1D /* NSString+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Color.h"; sourceTree = "<group>"; };
 		8B51D918178EC0E400264F1D /* NSString+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Color.m"; sourceTree = "<group>"; };
 		8B51D919178EC0E400264F1D /* UIColor+HexHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexHTML.h"; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 		8B80819C1782CC14008C1BA9 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8B318975179FEEF800960C7C /* EBArrayUtility.h */,
+				8B318976179FEEF800960C7C /* EBArrayUtility.m */,
 				8B8081CC1782D57C008C1BA9 /* EBAPI.h */,
 				8B8081CD1782D57C008C1BA9 /* EBAPI.m */,
 				8B8081F3178801CE008C1BA9 /* EBLog.h */,
@@ -623,6 +628,7 @@
 				8B1987E3179A774900CC200D /* EBPlaylistCell.m in Sources */,
 				8B80819A1782CBB8008C1BA9 /* EBTrackCell.m in Sources */,
 				8BDB77081781A1A400DC380B /* EBModelObject.m in Sources */,
+				8B318977179FEEF800960C7C /* EBArrayUtility.m in Sources */,
 				8B8081971782CB8A008C1BA9 /* EBShadowedTextField.m in Sources */,
 				8B8081A51782D1C6008C1BA9 /* EBFeaturedViewController.m in Sources */,
 				8B9A20F817923DCA0082C266 /* EBVerticalProgressView.m in Sources */,

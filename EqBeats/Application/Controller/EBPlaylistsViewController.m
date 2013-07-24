@@ -8,6 +8,7 @@
 
 #import "EBPlaylistsViewController.h"
 #import "EBPlaylistViewController.h"
+#import "EBTracksViewController.h"
 #import "EBModel.h"
 #import "EBPlaylist.h"
 #import "EBTrack.h"
@@ -23,7 +24,17 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    if (self.tracksToAdd == nil) {
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    } else {
+        if (self.navigationItem.rightBarButtonItem) {
+            [self.navigationItem.rightBarButtonItem setTarget: self];
+            [self.navigationItem.rightBarButtonItem setAction: @selector(addButtonAction:)];
+        }
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemCancel target: self action: @selector(cancelButtonAction:)];
+        self.navigationItem.prompt = [NSString stringWithFormat: @"Add To Which Playlist?"];
+    }
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -71,12 +82,20 @@
 
 - (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    if (self.tracksToAdd == nil) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    if (self.tracksToAdd == nil) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,9 +125,40 @@
     [self.tableView reloadData];
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.tracksToAdd != nil) {
+        if (self.playlists.count == 0) {
+            [self addButtonAction: nil];
+        } else {
+            [self pickPlaylist: self.playlists[indexPath.row]];
+        }
+    }
+}
+
 - (void) contextButtonAction: (id) sender
 {
     
+}
+
+- (void) cancelButtonAction: (id) sender
+{
+    [self.presentingViewController dismissViewControllerAnimated: YES completion: nil];
+}
+
+- (void) addButtonAction: (id) sender
+{
+    EBPlaylist *playlist = [[EBPlaylist alloc] initWithEntity: [NSEntityDescription entityForName: @"EBPlaylist" inManagedObjectContext: EBModel.sharedModel.mainThreadObjectContext] insertIntoManagedObjectContext: nil];
+    playlist.name = @"New Playlist";
+    [self pickPlaylist: playlist];
+}
+
+- (void) pickPlaylist: (EBPlaylist*) playlist
+{
+    EBTracksViewController *tracksVC = [EBTracksViewController new];
+    tracksVC.tracksToAdd = self.tracksToAdd;
+    tracksVC.playlist = playlist;
+    [self.navigationController pushViewController: tracksVC animated: YES];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -117,8 +167,16 @@
         UITableViewCell *cell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell: cell];
         EBPlaylist *playlist = self.playlists[indexPath.row];
-        [segue.destinationViewController setPlaylist: playlist];
+        [segue.destinationViewController setEditingPlaylist: playlist];
     }
+}
+
+- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if (self.tracksToAdd != nil) {
+        return NO;
+    }
+    return YES;
 }
 
 @end

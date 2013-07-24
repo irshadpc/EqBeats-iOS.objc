@@ -20,7 +20,6 @@
 @property (nonatomic, strong) UINib *userNib;
 @property (nonatomic, readonly) UITableView *searchTableView;
 @property (nonatomic, readonly) UISearchBar *searchBar;
-@property (nonatomic, strong) NSMutableIndexSet *pickedIndexes;
 @end
 
 @implementation EBSearchViewController
@@ -29,11 +28,6 @@
 {
     [super viewDidLoad];
     self.userNib = [UINib nibWithNibName: @"UserCell" bundle: nil];
-    if (self.playlist) {
-        self.pickedIndexes = [NSMutableIndexSet new];
-        self.navigationItem.prompt = [NSString stringWithFormat: @"Select Tracks to Add to %@", self.playlist.name];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone target: self action: @selector(doneButtonAction:)];
-    }
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -45,6 +39,9 @@
 
 - (void) reloadData
 {
+    if (self.playlist) {
+        self.tracksToAdd = self.searchResults;
+    }
     [super reloadData];
     [self.searchTableView reloadData];
 }
@@ -59,22 +56,12 @@
     return self.searchDisplayController.searchBar;
 }
 
-- (void) doneButtonAction: (id) sender
-{
-    NSArray *tracks = [self.searchResults objectsAtIndexes: self.pickedIndexes];
-    if (tracks.count > 0) {
-        for (EBTrack *track in tracks) {
-            [self.playlist addTracksObject: track];
-        }
-    }
-    [self.presentingViewController dismissViewControllerAnimated: YES completion: nil];
-}
-
 #pragma mark - Search Controller
 
 - (BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
 {
     self.searchResults = nil;
+    self.pickedIndexes = [NSMutableIndexSet new];
     [self setNeedsReload];
     [self performSearchDelayed];
     return NO;
@@ -110,6 +97,7 @@
         return;
     }
     self.searchResults = nil;
+    self.pickedIndexes = [NSMutableIndexSet new];
     [self setNeedsReload];
     switch (self.searchBar.selectedScopeButtonIndex) {
         case 0: {
@@ -160,18 +148,6 @@
     return cell;
 }
 
-- (EBTrackCell*) trackCellForIndexPath:(NSIndexPath *)indexPath
-{
-    EBTrackCell *cell = [super trackCellForIndexPath: indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    if (self.playlist) {
-        if ([self.pickedIndexes containsIndex: indexPath.row]) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        }
-    }
-    return cell;
-}
-
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.searchBar.selectedScopeButtonIndex == 0) {
@@ -195,24 +171,18 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.playlist) {
-        if ([self.pickedIndexes containsIndex: indexPath.row]) {
-            [self.pickedIndexes removeIndex: indexPath.row];
-        } else {
-            [self.pickedIndexes addIndex: indexPath.row];
-        }
-        [self.searchTableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationNone];
-        [self.tableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationNone];
-        if ([self.searchDisplayController isActive]) {
-            [self.searchDisplayController setActive: NO animated: YES];
-            CGPoint p = self.searchTableView.contentOffset;
-            p.y += 32 + 44;
-            [self.tableView setContentOffset: p];
-        }
-        return;
-    }
     if (self.searchBar.selectedScopeButtonIndex == 0) {
         [super tableView: tableView didSelectRowAtIndexPath: indexPath];
+        if (self.playlist) {
+            [self.searchTableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationNone];
+            if ([self.searchDisplayController isActive]) {
+                [self.searchDisplayController setActive: NO animated: YES];
+                CGPoint p = self.searchTableView.contentOffset;
+                p.y += 32 + 44;
+                [self.tableView setContentOffset: p];
+            }
+            return;
+        }
     } else {
         // It's a user, do different stuff
     }
