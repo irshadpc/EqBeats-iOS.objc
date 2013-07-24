@@ -61,6 +61,7 @@
 {
     [EBAPI getFeaturedTracksCompletion:^(NSArray *objects, NSError *error) {
         if (error == nil && objects != nil) {
+            [self.refreshControl endRefreshing];
             self.featured = objects;
             [self setNeedsReload];
         }
@@ -71,6 +72,7 @@
 {
     [EBAPI getLatestTracksCompletion:^(NSArray *objects, NSError *error) {
         if (error == nil && objects != nil) {
+            [self.refreshControl endRefreshing];
             self.latest = objects;
             [self setNeedsReload];
         }
@@ -81,6 +83,7 @@
 {
     [EBAPI getRandomTracksCompletion:^(NSArray *objects, NSError *error) {
         if (error == nil && objects != nil) {
+            [self.refreshControl endRefreshing];
             self.random = objects;
             [self setNeedsReload];
         }
