@@ -47,6 +47,7 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(playbackHeadMoved) name:EBAudioControllerPlaybackHeadMovedNotification object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(currentItemChanged) name:EBAudioControllerCurrentItemChangedNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(statusChanged) name:EBAudioControllerStatusChangedNotification object: nil];
     [self updateButtons];
     [self updateSlider];
     [self updateLabels];
@@ -129,6 +130,11 @@
 }
 
 - (void) currentItemChanged
+{
+    [self updateEverything];
+}
+
+- (void) statusChanged
 {
     [self updateEverything];
 }

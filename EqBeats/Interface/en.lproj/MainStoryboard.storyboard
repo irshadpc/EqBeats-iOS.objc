@@ -179,7 +179,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="previousButtonAction" destination="kKd-8I-kNo" eventType="touchUpInside" id="lHA-lw-wlA"/>
+                                            <action selector="previousButtonAction:" destination="kKd-8I-kNo" eventType="touchUpInside" id="oEJ-NY-iJ9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="guq-Ox-92F">
@@ -194,7 +194,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="playPauseButtonAction" destination="kKd-8I-kNo" eventType="touchUpInside" id="gge-0T-C8H"/>
+                                            <action selector="playPauseButtonAction:" destination="kKd-8I-kNo" eventType="touchUpInside" id="pbV-pf-BrM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="KVt-86-viv">
@@ -209,7 +209,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="nextButtonAction" destination="kKd-8I-kNo" eventType="touchUpInside" id="vaG-3M-XVu"/>
+                                            <action selector="nextButtonAction:" destination="kKd-8I-kNo" eventType="touchUpInside" id="QMo-3P-PQ4"/>
                                         </connections>
                                     </button>
                                     <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1.5" id="3jD-5Z-EKe">

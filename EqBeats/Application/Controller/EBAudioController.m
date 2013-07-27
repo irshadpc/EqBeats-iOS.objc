@@ -9,6 +9,22 @@
 #import "EBAudioController.h"
 #import "EBTrack.h"
 
+@interface AVQueuePlayer (EBAudioController)
+- (void) setItems: (NSArray*) items;
+@end
+
+@implementation AVQueuePlayer (EBAudioController)
+
+- (void) setItems:(NSArray *)items
+{
+    [self removeAllItems];
+    for (AVPlayerItem *item in items) {
+        [self insertItem: item afterItem: nil];
+    }
+}
+
+@end
+
 NSString* const EBAudioControllerPlaybackHeadMovedNotification = @"EBAudioControllerPlaybackHeadMovedNotification";
 NSString* const EBAudioControllerCurrentItemChangedNotification = @"EBAudioControllerCurrentItemChangedNotification";
 NSString* const EBAudioControllerStatusChangedNotification = @"EBAudioControllerStatusChangedNotification";
@@ -39,7 +55,12 @@ NSString* const EBAudioControllerStatusChangedNotification = @"EBAudioController
 - (void) setQueueIndex:(NSInteger)queueIndex
 {
     NSArray *playerItems = [self.queueItems subarrayWithRange: NSMakeRange(queueIndex, self.queueItems.count - queueIndex)];
-    self.currentPlayer = [[AVQueuePlayer alloc] initWithItems: playerItems];
+    [self.currentPlayer removeAllItems];
+    if (self.currentPlayer == nil) {
+        self.currentPlayer = [[AVQueuePlayer alloc] initWithItems: playerItems];
+    } else {
+        [self.currentPlayer setItems: playerItems];
+    }
 }
 
 - (void) setPlaybackQueue:(NSArray *)playbackQueue queueIndex:(NSInteger)index
@@ -89,7 +110,12 @@ NSString* const EBAudioControllerStatusChangedNotification = @"EBAudioController
 
 - (EBTrack*) currentTrack
 {
-    return self.playbackQueue[self.queueIndex];
+    NSInteger index = self.queueIndex;
+    if (index == NSNotFound) {
+        return nil;
+    } else {
+        return self.playbackQueue[self.queueIndex];
+    }
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -212,7 +238,7 @@ NSString* const EBAudioControllerStatusChangedNotification = @"EBAudioController
 
 - (BOOL) hasPreviousItem
 {
-    if (self.currentPlayer == nil || self.currentPlayer.items.count < 2) {
+    if (self.currentPlayer == nil || self.playbackQueue.count < 2) {
         return NO;
     } else {
         return [self queueIndex] > 0;
