@@ -89,7 +89,7 @@
         for (EBTrack *track in tracks) {
             [self.playlist addTracksObject: track];
         }
-        if (![self.playlist isInserted]) {
+        if (self.playlist.managedObjectContext == nil) {
             self.playlist.sortIndex = [[[EBModel allPlaylists] lastObject] sortIndex] + 1;
             [EBModel.sharedModel.mainThreadObjectContext insertObject: self.playlist];
         }
