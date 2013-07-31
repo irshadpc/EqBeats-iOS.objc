@@ -66,15 +66,18 @@ NSUInteger EBDeviceSystemMajorVersion() {
         if (quality != EBTrackArtQualityThumb) {
             manager = [SDWebImageManager sharedManager];
         }
-        [imageView loadImageFromURL: [track artURLAtQuality: quality]
-                   placeHolderImage: [self placeholderImageForQuality: quality]
-                       imageManager: manager
-                           progress: progress
-                         completion:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                             if (image == nil || error != nil) {
-                                 weakImageView.image = [self noArtworkImageForQuality: quality];
-                             }
-                         }];
+        NSURL *url = [track artURLAtQuality: quality];
+        if (![imageView.currentImageURL isEqual: url]) {
+            [imageView loadImageFromURL: url
+                       placeHolderImage: [self placeholderImageForQuality: quality]
+                           imageManager: manager
+                               progress: progress
+                             completion:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                 if (image == nil || error != nil) {
+                                     weakImageView.image = [self noArtworkImageForQuality: quality];
+                                 }
+                             }];
+        }
     }
 }
 

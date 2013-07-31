@@ -18,6 +18,7 @@
 @property (nonatomic) int32_t sortIndex;
 @property (nonatomic, retain) EBUser *author;
 @property (nonatomic, retain) NSOrderedSet *tracks;
+@property (nonatomic) BOOL lovedPlaylist;
 @end
 
 @interface EBPlaylist (CoreDataGeneratedAccessors)

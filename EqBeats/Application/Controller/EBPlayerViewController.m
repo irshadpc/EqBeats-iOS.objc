@@ -166,6 +166,32 @@
     [[EBModel sharedModel].audioController skipForwards];
 }
 
+- (IBAction)repeatButtonAction:(id)sender
+{
+    [sender setSelected: ![sender isSelected]];
+}
+
+- (IBAction)shuffleButtonAction:(id)sender
+{
+    [sender setSelected: ![sender isSelected]];
+}
+
+- (IBAction)loveButtonAction:(id)sender
+{
+    [sender setSelected: ![sender isSelected]];
+}
+
+- (IBAction)albumButtonAction:(id)sender
+{
+
+}
+
+- (IBAction)addToPlaylistButtonAction:(id)sender
+{
+
+}
+
+
 #pragma mark - Audio Stuff
 
 

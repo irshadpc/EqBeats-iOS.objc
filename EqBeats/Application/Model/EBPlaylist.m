@@ -17,5 +17,6 @@
 @dynamic sortIndex;
 @dynamic author;
 @dynamic tracks;
+@dynamic lovedPlaylist;
 
 @end

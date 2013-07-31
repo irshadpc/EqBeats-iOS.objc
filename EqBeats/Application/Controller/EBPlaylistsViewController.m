@@ -80,8 +80,25 @@
     return cell;
 }
 
+- (NSIndexPath*) indexPathForLovedRow
+{
+    if (self.tracksToAdd != nil) {
+        return nil;
+    } else if (self.playlists.count == 0) {
+        return [NSIndexPath indexPathForRow: 1 inSection: 0];
+    } else {
+        return [NSIndexPath indexPathForRow: 0 inSection: 0];
+    }
+}
+
 - (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.playlists.count == 0) {
+        return NO;
+    }
+    if ([indexPath isEqual: [self indexPathForLovedRow]]) {
+        return NO;
+    }
     if (self.tracksToAdd == nil) {
         return YES;
     } else {
@@ -91,6 +108,12 @@
 
 - (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.playlists.count == 0) {
+        return NO;
+    }
+    if ([indexPath isEqual: [self indexPathForLovedRow]]) {
+        return NO;
+    }
     if (self.tracksToAdd == nil) {
         return YES;
     } else {
@@ -133,6 +156,8 @@
         } else {
             [self pickPlaylist: self.playlists[indexPath.row]];
         }
+    } else if ([indexPath isEqual: [self indexPathForLovedRow]]) {
+        EBTracksViewController *tracksVC = [EBTracksViewController new];
     }
 }
 

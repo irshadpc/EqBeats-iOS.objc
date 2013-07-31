@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "EBAudioController.h"
+#import "EBPlaylist.h"
 
 @interface EBModel : NSObject
 @property (nonatomic, strong) EBAudioController *audioController;
@@ -21,5 +22,7 @@
 // Fetches.  These fetch requests do no caching at all.  Every time you call them, it'll
 // hit the database.
 + (NSArray*) allPlaylists;
+
++ (EBPlaylist*) lovedPlaylist;
 
 @end

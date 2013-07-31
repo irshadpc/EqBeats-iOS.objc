@@ -12,6 +12,7 @@
 #import "UIViewDesiredWidth.h"
 
 @interface EBImageView : UIImageView <UIViewDesiredHeight, UIViewDesiredWidth>
+@property (nonatomic, strong) NSURL *currentImageURL;
 
 - (void) loadImageFromURL: (NSURL*) url placeHolderImage: (UIImage*) placeholder completion: (void (^)(UIImage *image, NSError *error, SDImageCacheType cacheType)) completion;
 - (void) loadImageFromURL: (NSURL*) url placeHolderImage: (UIImage*) placeholder progress: (SDWebImageDownloaderProgressBlock) progress completion: (void (^)(UIImage *image, NSError *error, SDImageCacheType cacheType)) completion;

@@ -108,7 +108,22 @@
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName: @"EBPlaylist"];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey: @"sortIndex" ascending: YES]];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat: @"lovedPlaylist == NO"];
     return [[self.sharedModel mainThreadObjectContext] executeFetchRequest: fetchRequest error: nil];
+}
+
++ (EBPlaylist*) lovedPlaylist
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName: @"EBPlaylist"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat: @"lovedPlaylist == YES"];
+    NSArray *results = [[self.sharedModel mainThreadObjectContext] executeFetchRequest: fetchRequest error: nil];
+    if (results == nil || results.count == 0) {
+        EBPlaylist *playlist = [NSEntityDescription insertNewObjectForEntityForName: @"EBPlaylist" inManagedObjectContext: self.sharedModel.mainThreadObjectContext];
+        playlist.lovedPlaylist = YES;
+        [self.sharedModel.mainThreadObjectContext save: nil];
+        results = @[playlist];
+    }
+    return results[0];
 }
 
 @end

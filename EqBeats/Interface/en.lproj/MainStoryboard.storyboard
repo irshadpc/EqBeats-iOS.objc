@@ -247,6 +247,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="repeatButtonAction:" destination="kKd-8I-kNo" eventType="touchUpInside" id="eOp-Lp-fdo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="b7w-oz-oty">
                                         <rect key="frame" x="65" y="42" width="60" height="30"/>
@@ -260,6 +263,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="shuffleButtonAction:" destination="kKd-8I-kNo" eventType="touchUpInside" id="rIP-td-ZYl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="9BJ-qv-930">
                                         <rect key="frame" x="130" y="42" width="60" height="30"/>
@@ -273,6 +279,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loveButtonAction:" destination="kKd-8I-kNo" eventType="touchUpInside" id="C2m-ly-NiI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Kbn-uv-GFL">
                                         <rect key="frame" x="195" y="42" width="60" height="30"/>
@@ -285,6 +294,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="albumButtonAction:" destination="kKd-8I-kNo" eventType="touchUpInside" id="6sa-nV-S2O"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="b0i-Tf-5Cp">
                                         <rect key="frame" x="260" y="42" width="60" height="30"/>
@@ -297,6 +309,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addToPlaylistButtonAction:" destination="kKd-8I-kNo" eventType="touchUpInside" id="Eqx-2u-F5h"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" id="vgV-pA-ayC" customClass="EBPlaybackScrubControl">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -965,8 +980,40 @@
                                     <segue destination="gol-Fy-Yia" kind="push" identifier="PlaylistCellPushSegue" id="SBU-77-mxY"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddPlaylistCell" id="VQp-MN-n5N">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EBLovedCell" id="qE8-Mk-T5s" customClass="EBPlaylistCell">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qE8-Mk-T5s" id="Mpw-8y-ujI">
+                                    <rect key="frame" x="-1" y="0.0" width="301" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ziv-kB-9CK">
+                                            <rect key="frame" x="46" y="5" width="238" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of tracks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Bo-xt-bHl">
+                                            <rect key="frame" x="46" y="22" width="238" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayerLoveIcon" id="k2T-bJ-oss">
+                                            <rect key="frame" x="5" y="5" width="33" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.9256433073" green="0.69210195399999996" blue="1" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="ziv-kB-9CK" id="Nni-NL-oeq"/>
+                                    <outlet property="tracksLabel" destination="2Bo-xt-bHl" id="Qyg-Fe-pc1"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddPlaylistCell" id="VQp-MN-n5N">
+                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VQp-MN-n5N" id="17E-d3-TdG">
                                     <rect key="frame" x="-1" y="0.0" width="322" height="43"/>
@@ -1253,6 +1300,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YMg-hH-0bp"/>
+        <segue reference="9Z4-U2-ilJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -32,6 +32,7 @@
     }
     
     if (url != nil) {
+        self.currentImageURL = url;
         self.loadImageOperation = [manager downloadWithURL: url options: 0 progress: progress completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
             if (image != nil) {
                 self.image = image;

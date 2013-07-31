@@ -17,6 +17,7 @@
         <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
     </entity>
     <entity name="EBPlaylist" representedClassName="EBPlaylist" parentEntity="EBModelObject" syncable="YES">
+        <attribute name="lovedPlaylist" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sortIndex" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EBUser" inverseName="playlists" inverseEntity="EBUser" syncable="YES"/>
